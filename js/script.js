@@ -70,10 +70,10 @@ class LazyLoader {
 class TestimonialsCarousel {
   constructor() {
     this.images = [
-      'dep/depoimento01iphone.jpg',
-      'dep/depoimento02.jpg',
-      'dep/depoimento3.jpeg',
-      'dep/depoimento4.jpeg'
+      'images/depoimento01iphone.jpg',
+      'images/depoimento02.jpg',
+      'images/depoimento3.jpeg',
+      'images/depoimento4.jpeg'
     ];
     this.currentIndex = 0;
     this.imageElement = document.getElementById('testimonial-image');
@@ -197,9 +197,9 @@ class ImagePreloader {
 
   preloadCritical() {
     const criticalImages = [
-      'dep/depoimento02.jpg',
-      'dep/depoimento3.jpeg',
-      'dep/depoimento4.jpeg'
+      'images/depoimento02.jpg',
+      'images/depoimento3.jpeg',
+      'images/depoimento4.jpeg'
     ];
     
     // Preload after initial render
