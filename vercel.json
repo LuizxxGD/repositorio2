@@ -28,6 +28,5 @@
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
-  "functions": {},
   "regions": ["gru1"]
 }
