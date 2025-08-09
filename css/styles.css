@@ -1257,8 +1257,7 @@ body {
 .cta-button:focus,
 .plan-button:focus,
 .footer-link:focus {
-  outline: 2px solid #ff8c00;
-  outline-offset: 2px;
+  outline: none;
 }
 
 .cta-button:active,
@@ -1432,8 +1431,7 @@ body {
 }
 
 .promo-button:focus {
-  outline: 2px solid #ff8c00;
-  outline-offset: 2px;
+  outline: none;
 }
 
 /* Mobile responsive for promo section */
@@ -1643,8 +1641,7 @@ body {
 }
 
 .elementor-button:focus {
-  outline: 2px solid rgba(255, 140, 0, 0.5);
-  outline-offset: 2px;
+  outline: none;
 }
 
 .elementor-button:active {
