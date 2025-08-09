@@ -1,0 +1,24 @@
+{
+  "name": "ios-unlocker-pro",
+  "version": "1.0.0",
+  "description": "Projeto iOS Unlocker Pro - Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "start": "vercel dev",
+    "build": "echo 'Build completed'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "ios",
+    "unlocker",
+    "landing-page",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "LuizxxGD",
+  "license": "MIT",
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}
