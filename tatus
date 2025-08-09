@@ -1,0 +1,5 @@
+[33mfb6019e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m Atualizar fundos: hero com fundo-hero.webp e seções about com FUNDO OFICIAL.png
+[33m0f77f27[m feat: substituir fundo por FUNDO OFICIAL e reorganizar seções - Troca paredeoficial.jpg por FUNDO OFICIAL.png - Reorganiza ordem: Depoimentos -> Módulos -> Bônus -> Preços -> Planos - Remove seções duplicadas
+[33ma8888da[m Trocada posição: módulos agora vêm primeiro, depoimentos+promoção vêm depois dos bônus
+[33m5d487f9[m Movido botão 'Começar Agora' para depois da explicação do MDM PayJoy
+[33m9f03d2f[m Aplicado estilo unificado de botão vermelho com borda laranja para todos os CTAs principais
