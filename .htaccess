@@ -1,0 +1,87 @@
+# PROTEÇÃO ANTI-CLONAGEM - ARQUIVO .HTACCESS
+# Proteções no lado do servidor contra ferramentas de clonagem
+
+# Bloquear User-Agents suspeitos
+RewriteEngine On
+
+# Bloquear ferramentas de clonagem conhecidas
+RewriteCond %{HTTP_USER_AGENT} (HTTrack|Wget|curl|SaveWeb2Zip|Website-Ripper|WebCopier|Teleport|Offline-Explorer|WebZIP|Site-Sucker|Grabber|Scraper) [NC]
+RewriteRule .* - [F,L]
+
+# Bloquear bots e crawlers suspeitos
+RewriteCond %{HTTP_USER_AGENT} (bot|crawler|spider|scraper|grabber) [NC]
+RewriteRule .* - [F,L]
+
+# Bloquear tentativas de acessar arquivos sensíveis
+<Files "*.js">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+<Files "*.css">
+    Order Allow,Deny
+    Allow from all
+</Files>
+
+# Proteger contra hotlinking de imagens
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?seu-dominio.com [NC]
+RewriteRule \.(jpg|jpeg|png|gif|webp)$ - [F,L]
+
+# Desabilitar listagem de diretórios
+Options -Indexes
+
+# Configurações de segurança adicionais
+<IfModule mod_headers.c>
+    # Prevenir clickjacking
+    Header always append X-Frame-Options SAMEORIGIN
+    
+    # Prevenir MIME type sniffing
+    Header always set X-Content-Type-Options nosniff
+    
+    # Habilitar XSS protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Configurar Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://i.postimg.cc; connect-src 'self'"
+</IfModule>
+
+# Limitar métodos HTTP permitidos
+<LimitExcept GET POST>
+    Deny from all
+</LimitExcept>
+
+# Proteger contra ataques de força bruta
+<IfModule mod_evasive20.c>
+    DOSHashTableSize 3097
+    DOSPageCount 2
+    DOSSiteCount 50
+    DOSPageInterval 1
+    DOSSiteInterval 1
+    DOSBlockingPeriod 10
+</IfModule>
+
+# Configurações de cache para melhor performance
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+</IfModule>
+
+# Comprimir arquivos para melhor performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule> 
