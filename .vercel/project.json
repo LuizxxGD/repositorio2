@@ -1,0 +1,11 @@
+{
+  "projectId": "ios-unlocker-pro",
+  "orgId": "luizxxgd",
+  "settings": {
+    "framework": null,
+    "buildCommand": null,
+    "outputDirectory": ".",
+    "devCommand": null,
+    "installCommand": null
+  }
+}
