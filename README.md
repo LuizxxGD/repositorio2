@@ -1,8 +1,10 @@
 # iOS Unlocker Pro - Landing Page
 
+Site oficial do iPhone Unlocker com design responsivo e otimizado.
+
 ## 🚀 Deploy no Vercel
 
-Este projeto está configurado para funcionar perfeitamente no Vercel.
+Este projeto está configurado para funcionar perfeitamente no Vercel através do GitHub.
 
 ### 📁 Estrutura do Projeto
 ```
@@ -40,6 +42,9 @@ O arquivo `vercel.json` está configurado para:
 - Servir arquivos estáticos (HTML, CSS, JS, imagens)
 - Configurar rotas corretas
 - Otimizar o build
+- Garantir que o `index.html` seja exibido corretamente
+- Todas as rotas redirecionem para a página principal
+- Os arquivos estáticos (CSS, JS, imagens) sejam cacheados adequadamente
 
 ### 🔧 Scripts Disponíveis
 
