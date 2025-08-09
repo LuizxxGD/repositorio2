@@ -27,6 +27,5 @@
   "outputDirectory": ".",
   "public": true,
   "cleanUrls": true,
-  "trailingSlash": false,
-  "regions": ["gru1"]
+  "trailingSlash": false
 }
