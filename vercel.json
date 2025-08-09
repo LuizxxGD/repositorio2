@@ -32,7 +32,6 @@
       "dest": "/$1"
     }
   ],
-  "functions": {},
   "outputDirectory": ".",
   "public": true,
   "cleanUrls": true,
