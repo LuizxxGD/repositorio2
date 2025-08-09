@@ -12,10 +12,6 @@
       "dest": "/index.html"
     },
     {
-      "src": "/index.html",
-      "dest": "/index.html"
-    },
-    {
       "src": "/css/(.*)",
       "dest": "/css/$1"
     },
@@ -26,25 +22,12 @@
     {
       "src": "/images/(.*)",
       "dest": "/images/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
     }
   ],
   "outputDirectory": ".",
   "public": true,
   "cleanUrls": true,
   "trailingSlash": false,
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    }
-  ]
+  "functions": {},
+  "regions": ["gru1"]
 }

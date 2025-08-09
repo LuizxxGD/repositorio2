@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "Projeto iOS Unlocker Pro - Landing Page",
   "main": "index.html",
+  "type": "module",
   "scripts": {
     "start": "vercel dev",
-    "build": "echo 'Build completed'",
-    "deploy": "vercel --prod"
+    "build": "bash vercel-build.sh",
+    "deploy": "vercel --prod",
+    "vercel-build": "bash vercel-build.sh"
   },
   "keywords": [
     "ios",
