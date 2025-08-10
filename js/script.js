@@ -101,12 +101,19 @@ class TestimonialsCarousel {
 
   changeImage() {
     this.currentIndex = (this.currentIndex + 1) % this.images.length;
-    this.imageElement.style.opacity = '0';
     
-    setTimeout(() => {
-      this.imageElement.src = this.images[this.currentIndex];
-      this.imageElement.style.opacity = '1';
-    }, 250);
+    // Preload next image to avoid layout shift
+    const nextImage = new Image();
+    nextImage.onload = () => {
+      // Batch DOM updates to reduce reflow
+      this.imageElement.style.opacity = '0';
+      
+      setTimeout(() => {
+        this.imageElement.src = this.images[this.currentIndex];
+        this.imageElement.style.opacity = '1';
+      }, 250);
+    };
+    nextImage.src = this.images[this.currentIndex];
   }
 
   destroy() {
@@ -139,8 +146,21 @@ class SmoothScroller {
   }
 
   scrollToElement(element) {
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - 80;
+    // Cache scroll calculations to avoid repeated layout queries
+    if (!this.scrollCache) {
+      this.scrollCache = new Map();
+    }
+    
+    const cacheKey = element.id || element.className;
+    let offsetPosition;
+    
+    if (this.scrollCache.has(cacheKey)) {
+      offsetPosition = this.scrollCache.get(cacheKey);
+    } else {
+      const elementPosition = element.getBoundingClientRect().top;
+      offsetPosition = elementPosition + window.pageYOffset - 80;
+      this.scrollCache.set(cacheKey, offsetPosition);
+    }
 
     window.scrollTo({
       top: offsetPosition,
@@ -174,8 +194,30 @@ class ScrollHandler {
   }
 
   updateScroll() {
-    // Add scroll-based animations here if needed
-    // Example: parallax effects, scroll-triggered animations
+    // Cache DOM queries to avoid repeated layout calculations
+    if (!this.cachedElements) {
+      this.cachedElements = {
+        siteBackground: document.getElementById('siteBackground'),
+        heroSection: document.querySelector('.hero-section')
+      };
+    }
+    
+    // Use cached elements to avoid reflow
+    if (this.cachedElements.siteBackground && this.cachedElements.heroSection) {
+      const heroBottom = this.cachedElements.heroSection.offsetTop + this.cachedElements.heroSection.offsetHeight;
+      const scrollPosition = window.scrollY + window.innerHeight;
+      
+      // Batch DOM updates to reduce reflow
+      if (scrollPosition > heroBottom) {
+        if (!this.cachedElements.siteBackground.classList.contains('visible')) {
+          this.cachedElements.siteBackground.classList.add('visible');
+        }
+      } else {
+        if (this.cachedElements.siteBackground.classList.contains('visible')) {
+          this.cachedElements.siteBackground.classList.remove('visible');
+        }
+      }
+    }
   }
 }
 
