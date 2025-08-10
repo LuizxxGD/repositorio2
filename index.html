@@ -50,7 +50,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
     
-    /* Global background that starts after hero section */
+             /* Global background that starts after hero section */
     .site-background {
       position: fixed;
       top: 0;
@@ -61,11 +61,23 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed;
+      background-attachment: scroll;
       z-index: -1;
       opacity: 0;
       transition: opacity 0.5s ease-in-out;
       pointer-events: none;
+    }
+    
+    /* Dark overlay for the global background */
+    .site-background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
     }
     
     .site-background.visible {
@@ -819,7 +831,7 @@
           </div>
           
           <div class="plan-cta">
-            <a href="https://seguropagamentos.com.br/iosbasico" class="main-cta-button" id="1cc2daf4-b99e-61e4-07db-ec4b600ed87e">
+            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC598" class="main-cta-button" id="1cc2daf4-b99e-61e4-07db-ec4b600ed87e">
               ESCOLHER PLANO BÁSICO
             </a>
           </div>
@@ -850,7 +862,7 @@
           </div>
           
           <div class="plan-cta">
-            <a href="https://seguropagamentos.com.br/iosintermediario" class="main-cta-button" id="25f7d9d1-471a-c72a-1ff2-5234b65a0ec0">
+            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC5A2" class="main-cta-button" id="25f7d9d1-471a-c72a-1ff2-5234b65a0ec0">
               ESCOLHER PLANO AVANÇADO
             </a>
           </div>
@@ -897,7 +909,7 @@
           </div>
           
           <div class="plan-cta">
-            <a href="https://seguropagamentos.com.br/iosavancado" class="main-cta-button" id="cdb40bc5-e5b5-61d6-a7d8-72857069161b">
+            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC5A3" class="main-cta-button" id="cdb40bc5-e5b5-61d6-a7d8-72857069161b">
               ESCOLHER PLANO ESPECIALISTA
             </a>
           </div>
