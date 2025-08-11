@@ -246,7 +246,7 @@
         transform: translateX(0);
       }
       100% {
-        transform: translateX(-50%);
+        transform: translateX(-600%);
       }
     }
     
@@ -258,24 +258,63 @@
     
     .carousel-track {
       display: flex;
-      width: 700%;
-      animation: scroll 112s linear infinite;
+      width: 600%;
+      animation: scroll 60s linear infinite;
     }
     
     .bonus-card {
-      flex: 0 0 14.285%;
+      flex: 0 0 16.666%;
       padding: 0 15px;
       box-sizing: border-box;
     }
     
     @media (max-width: 768px) {
       .carousel-track {
-        width: 1400%;
-        animation: scroll 60s linear infinite;
+        width: 600%;
+        animation: scroll 45s linear infinite;
       }
       .bonus-card {
-        flex: 0 0 7.142%;
+        flex: 0 0 16.666%;
       }
+    }
+    
+    /* Estilos para botões dos planos */
+    .cta-button-promo, .cta-button-special, .cta-button-premium {
+      width: 100% !important;
+      padding: 20px 30px !important;
+      font-size: 18px !important;
+      font-weight: bold !important;
+      text-transform: uppercase !important;
+      border: none !important;
+      border-radius: 10px !important;
+      cursor: pointer !important;
+      transition: all 0.3s ease !important;
+      background: linear-gradient(45deg, #ff0000, #ff6600) !important;
+      color: white !important;
+      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3) !important;
+    }
+    
+    .cta-button-promo:hover, .cta-button-special:hover, .cta-button-premium:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 12px 35px rgba(255, 0, 0, 0.4) !important;
+      background: linear-gradient(45deg, #ff2200, #ff8800) !important;
+    }
+    
+    /* Melhorar carrossel de depoimentos */
+    .elementor-image-carousel {
+      max-width: 400px !important;
+      margin: 0 auto !important;
+    }
+    
+    .elementor-image-carousel img {
+      width: 100% !important;
+      height: auto !important;
+      display: block !important;
+      border-radius: 10px !important;
+    }
+    
+    .swiper-slide {
+      padding: 10px !important;
     }
     
     /* Garantir que imagens sejam exibidas */
@@ -408,7 +447,7 @@
                 <div class="elementor-element elementor-element-558cc67 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="558cc67" data-element_type="widget" data-widget_type="heading.default">
                     <h2 class="elementor-heading-title elementor-size-default"><span style="font-weight: normal"><h1>APRENDA A DESBLOQUEAR TODOS OS MODELOS DE CELULAR COM NOSSO CURSO DO <span style="color: #a020f0;font-weight: normal">ZERO AO AVANÇADO!</span><span style="letter-spacing: 0.4px"></span></h1></span></h2>
                 </div>
-                <div class="elementor-element elementor-element-cf20d21 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="cf20d21" data-element_type="widget" data-widget_type="image.default" style="margin-top: -90px;">
+                <div class="elementor-element elementor-element-cf20d21 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="cf20d21" data-element_type="widget" data-widget_type="image.default" style="margin-top: 50px;">
     <picture>
         <source type="image/webp" srcset="images/COMUNIDADE-removebg-preview.png 500w, images/COMUNIDADE-removebg-preview.png 300w, images/COMUNIDADE-removebg-preview.png 150w" sizes="(max-width: 500px) 100vw, 500px">
         <img decoding="async" width="500" height="500" src="images/COMUNIDADE-removebg-preview.png" class="attachment-large size-large" alt="Logo da comunidade iOS Unlocker Pro" loading="lazy" srcset="images/COMUNIDADE-removebg-preview.png 500w, images/COMUNIDADE-removebg-preview.png 300w, images/COMUNIDADE-removebg-preview.png 150w" sizes="(max-width: 500px) 100vw, 500px">
@@ -469,25 +508,50 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    if (typeof Swiper !== 'undefined') {
-        new Swiper('.elementor-image-carousel-wrapper.swiper', {
-            slidesPerView: 1,
-            spaceBetween: 0,
-            loop: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false
-            },
-            navigation: {
-                nextEl: '.elementor-swiper-button-next',
-                prevEl: '.elementor-swiper-button-prev'
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
+    // Inicializar carrossel de depoimentos
+    setTimeout(function() {
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('.elementor-image-carousel-wrapper.swiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                navigation: {
+                    nextEl: '.elementor-swiper-button-next',
+                    prevEl: '.elementor-swiper-button-prev'
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                effect: 'slide'
+            });
+        } else {
+            // Fallback se Swiper não estiver disponível
+            const slides = document.querySelectorAll('.swiper-slide');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.style.display = i === index ? 'block' : 'none';
+                });
             }
-        });
-    }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Mostrar primeira imagem
+            showSlide(0);
+            
+            // Trocar imagem a cada 3 segundos
+            setInterval(nextSlide, 3000);
+        }
+    }, 1000);
 });
 </script>
 				<div class="elementor-element elementor-element-09d5b4b elementor-widget elementor-widget-heading" data-id="09d5b4b" data-element_type="widget" data-widget_type="heading.default" style="margin-top: 30px;">
@@ -778,7 +842,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           
           <div class="plan-cta-promo">
-            <button class="cta-button-promo">ACESSAR AGORA! POR APENAS 19,90</button>
+            <a href="#comprar-agora" class="cta-button-promo" style="text-decoration: none; display: block;">ACESSAR AGORA! POR APENAS 19,90</a>
           </div>
         </div>
         
@@ -812,60 +876,60 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           
           <div class="plan-cta-special">
-            <button class="cta-button-special">ACESSAR AGORA! POR APENAS 37,00</button>
+            <a href="#comprar-agora" class="cta-button-special" style="text-decoration: none; display: block;">ACESSAR AGORA! POR APENAS 37,00</a>
           </div>
         </div>
         
         <!-- Plano Premium -->
-        <div class="plan-card-premium">
-          <div class="plan-header-premium">
-            <div class="plan-banner-premium">
-              <div class="premium-title">ATENÇÃO PREMIUM</div>
-              <div class="premium-subtitle">ACESSO VITALICIO</div>
-              <div class="premium-description">Tome-se premium agora e garanta sua vantagem antes que a concorrência te ultrapasse!</div>
+        <div class="plan-card-premium" style="background: linear-gradient(135deg, #8B5CF6, #A855F7); border: 3px solid #FFD700; position: relative; overflow: hidden;">
+          <div class="plan-header-premium" style="background: rgba(255,255,255,0.1); border: 2px solid white; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+            <div class="plan-banner-premium" style="text-align: center;">
+              <div class="premium-title" style="color: #000000; font-size: 24px; font-weight: bold; margin-bottom: 5px;">ATENÇÃO PREMIUM</div>
+              <div class="premium-subtitle" style="color: #000000; font-size: 20px; font-weight: bold; margin-bottom: 10px;">ACESSO VITALÍCIO</div>
+              <div class="premium-description" style="color: #000000; font-size: 14px;">Torne-se premium agora e garanta sua vantagem antes que a concorrência te ultrapasse!</div>
             </div>
           </div>
           
-          <div class="plan-price-premium">
-            <div class="price-label-premium">VALOR TOTAL</div>
-            <div class="price-old-premium">R$ 347,00</div>
-            <div class="price-new-premium">R$47,00</div>
-            <div class="payment-terms-premium">
+          <div class="plan-price-premium" style="text-align: center; margin-bottom: 25px;">
+            <div class="price-label-premium" style="color: #FF6B6B; font-size: 16px; margin-bottom: 5px;">VALOR TOTAL</div>
+            <div class="price-old-premium" style="color: #FF6B6B; font-size: 20px; text-decoration: line-through; margin-bottom: 5px;">R$ 347,00</div>
+            <div class="price-new-premium" style="color: #00FF88; font-size: 36px; font-weight: bold; margin-bottom: 10px;">R$47,00</div>
+            <div class="payment-terms-premium" style="color: #FFD700; font-size: 14px;">
               <div>Pagamento único</div>
               <div>ou 5x de R$ 9,40</div>
             </div>
           </div>
           
-          <div class="plan-features-premium">
-            <ul>
-              <li><span class="checkmark">✓</span> Desbloqueio de todas as contas</li>
-              <li><span class="checkmark">✓</span> Domine a UNLOCKTOOL</li>
-              <li><span class="checkmark">✓</span> FRP One Click desbloqueios Mi Cloud</li>
-              <li><span class="checkmark">✓</span> Acesso vitalício</li>
-              <li><span class="checkmark">✓</span> Suporte individual</li>
-              <li><span class="checkmark">✓</span> 7 dias de garantia</li>
+          <div class="plan-features-premium" style="margin-bottom: 20px;">
+            <ul style="list-style: none; padding: 0;">
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Desbloqueio de todas as contas</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Domine a UNLOCKTOOL</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> FRP One Click desbloqueios Mi Cloud</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Acesso vitalício</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Suporte individual</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> 7 dias de garantia</li>
             </ul>
           </div>
           
-          <div class="bonus-section-premium">
-            <div class="bonus-banner-premium">+BÔNUS INCRÍVEIS</div>
+          <div class="bonus-section-premium" style="background: rgba(255,215,0,0.2); border: 2px solid #FFD700; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
+            <div class="bonus-banner-premium" style="color: #FFD700; font-size: 20px; font-weight: bold; text-align: center;">+BÔNUS INCRÍVEIS</div>
           </div>
           
           <div class="bonus-features-premium">
-            <ul>
-              <li><span class="checkmark">✓</span> Area de membros</li>
-              <li><span class="checkmark">✓</span> Desbloqueios + planilhas técnicas</li>
-              <li><span class="checkmark">✓</span> Certificado de conclusão</li>
-              <li><span class="checkmark">✓</span> Acesso remoto</li>
-              <li><span class="checkmark">✓</span> Servidores e ferramentas</li>
-              <li><span class="checkmark">✓</span> Plataforma via PIX</li>
-              <li><span class="checkmark">✓</span> FRP One Click</li>
-              <li><span class="checkmark">✓</span> Ordem de serviços</li>
+            <ul style="list-style: none; padding: 0;">
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Área de membros</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Desbloqueios + planilhas técnicas</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Certificado de conclusão</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Acesso remoto</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Servidores e ferramentas</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Plataforma via PIX</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> FRP One Click</li>
+              <li style="color: white; margin-bottom: 8px; font-size: 16px;"><span class="checkmark" style="color: #00FF88; margin-right: 10px;">✓</span> Ordem de serviços</li>
             </ul>
           </div>
           
           <div class="plan-cta-premium">
-            <button class="cta-button-premium">ACESSAR AGORA! POR APENAS 47,00</button>
+            <a href="#comprar-agora" class="cta-button-premium" style="text-decoration: none; display: block;">ACESSAR AGORA! POR APENAS 47,00</a>
           </div>
         </div>
       </div>
