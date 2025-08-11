@@ -260,7 +260,7 @@
     .carousel-track {
       display: flex;
       width: 2000%; /* 20 repetições completas dos 6 bônus */
-      animation: scroll 300s linear infinite; /* Muito mais lento */
+      animation: scroll 60s linear infinite; /* Muito mais rápido */
       will-change: transform;
     }
     
@@ -274,7 +274,7 @@
     @media (max-width: 768px) {
       .carousel-track {
         width: 2000%;
-        animation: scroll 240s linear infinite; /* Muito mais lento no mobile */
+        animation: scroll 45s linear infinite; /* Muito mais rápido no mobile */
       }
       .bonus-card {
         flex: 0 0 5%;
@@ -419,14 +419,51 @@
         }
     }
     
+    // Função para calcular tempo até meia-noite
+    function getTimeUntilMidnight() {
+        const now = new Date();
+        const tomorrow = new Date(now);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(0, 0, 0, 0);
+        return tomorrow - now;
+    }
+    
     // Executar quando a página carregar
-    document.addEventListener('DOMContentLoaded', updatePromoDate);
+    document.addEventListener('DOMContentLoaded', function() {
+        updatePromoDate();
+        
+        // Agendar atualização para meia-noite
+        const timeUntilMidnight = getTimeUntilMidnight();
+        setTimeout(function() {
+            updatePromoDate();
+            // Depois da primeira meia-noite, atualizar a cada 24 horas
+            setInterval(updatePromoDate, 24 * 60 * 60 * 1000);
+        }, timeUntilMidnight);
+    });
     
     // Executar imediatamente caso o DOM já esteja carregado
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', updatePromoDate);
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePromoDate();
+            
+            // Agendar atualização para meia-noite
+            const timeUntilMidnight = getTimeUntilMidnight();
+            setTimeout(function() {
+                updatePromoDate();
+                // Depois da primeira meia-noite, atualizar a cada 24 horas
+                setInterval(updatePromoDate, 24 * 60 * 60 * 1000);
+            }, timeUntilMidnight);
+        });
     } else {
         updatePromoDate();
+        
+        // Agendar atualização para meia-noite
+        const timeUntilMidnight = getTimeUntilMidnight();
+        setTimeout(function() {
+            updatePromoDate();
+            // Depois da primeira meia-noite, atualizar a cada 24 horas
+            setInterval(updatePromoDate, 24 * 60 * 60 * 1000);
+        }, timeUntilMidnight);
     }
     </script>
     
