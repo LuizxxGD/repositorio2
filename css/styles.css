@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Anton', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   color: #fff;
   background: #000;
@@ -1086,92 +1086,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Estilos para a seção do presente */
-.gift-section {
-  background: linear-gradient(135deg, #800080 0%, #4a0080 50%, #800080 100%);
-  padding: 80px 20px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
 
-.gift-section::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 200px;
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-  z-index: 1;
-}
-
-.gift-container {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.gift-image-container {
-  margin: 0 auto 40px;
-  text-align: center;
-  max-width: 500px;
-}
-
-.gift-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  animation: gift-image-float 3s ease-in-out infinite;
-}
-
-@keyframes gift-image-float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.gift-cta {
-  margin-top: 40px;
-}
-
-.gift-button {
-  background: linear-gradient(45deg, #ffff00, #ffed4e);
-  border: none;
-  border-radius: 15px;
-  padding: 20px 40px;
-  color: #800080;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: Arial, sans-serif;
-  letter-spacing: 1px;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(255, 255, 0, 0.4);
-  transition: all 0.3s ease;
-  animation: gift-button-glow 2s ease-in-out infinite;
-}
-
-.gift-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(255, 255, 0, 0.6);
-  background: linear-gradient(45deg, #ffed4e, #ffff00);
-}
-
-@keyframes gift-button-glow {
-  0%, 100% {
-    box-shadow: 0 8px 25px rgba(255, 255, 0, 0.4);
-  }
-  50% {
-    box-shadow: 0 12px 35px rgba(255, 255, 0, 0.7);
-  }
-}
 
 .plan-card {
   background: linear-gradient(145deg, #000000 0%, #0a0a0a 100%);
