@@ -1,103 +1,386 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso de Desbloqueio de Celulares - Unlocker Pro</title>
-  <meta name="description" content="Desbloqueio de iPhones com segurança. Garantia e suporte especializado.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="iOS Unlocker Pro">
-  <meta name="theme-color" content="#ff8c00">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="iOS Unlocker Pro">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="apple-touch-icon" href="images/placeholder-logo.png">
-  
-  <!-- Preload critical resources with higher priority -->
-  <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Anton&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-      <link rel="preload" href="images/fundo-hero.webp" as="image" fetchpriority="high">
-      <link rel="preload" href="images/FUNDO OFICIAL.png" as="image">
-  
-  <!-- DNS prefetch for external domains -->
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//fonts.gstatic.com">
-  <link rel="dns-prefetch" href="//i.postimg.cc">
-  <link rel="dns-prefetch" href="//cdn.utmify.com.br">
-  <link rel="preconnect" href="https://api6.ipify.org">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  
-  <!-- Fallback stylesheets -->
-  <noscript>
-    <link rel="stylesheet" href="css/styles.css?v=2.5.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Anton&display=swap">
-  </noscript>
-  
-  <!-- Cache control -->
-  <meta http-equiv="Cache-Control" content="public, max-age=31536000">
-  
-  <!-- Critical CSS inline - optimized for mobile -->
-  <style>
-    /* Critical CSS for above-the-fold content - mobile optimized */
-    * { box-sizing: border-box; }
-    body { 
-      margin: 0; 
-      font-family: "Anton", "Inter", -apple-system, BlinkMacSystemFont, sans-serif; 
-      background: #000; 
-      color: #fff; 
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Desbloqueio de Celulares - Unlocker Pro</title>
+    <meta name="description" content="Aprenda a desbloquear todos os modelos de celulares com nosso curso completo do zero ao avançado. Inclui iPhone, Samsung, Xiaomi e muito mais!">
+    <meta name="keywords" content="desbloqueio de celulares, curso de desbloqueio, iPhone, Samsung, Xiaomi, FRP, MDM, PayJoy">
+    <meta name="author" content="Unlocker Pro">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Curso de Desbloqueio de Celulares - Unlocker Pro">
+    <meta property="og:description" content="Aprenda a desbloquear todos os modelos de celulares com nosso curso completo do zero ao avançado.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://unlockerpro.com">
+    <meta property="og:image" content="images/COMUNIDADE-removebg-preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Curso de Desbloqueio de Celulares - Unlocker Pro">
+    <meta name="twitter:description" content="Aprenda a desbloquear todos os modelos de celulares com nosso curso completo do zero ao avançado.">
+    <meta name="twitter:image" content="images/COMUNIDADE-removebg-preview.png">
     
-             /* Global background that starts after hero section */
-    .site-background {
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/placeholder-logo.png">
+    <link rel="apple-touch-icon" href="images/placeholder-logo.png">
+    
+    <!-- Scripts da nova pasta -->
+    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+    <script src="js/notiflix-aio-2.6.0.min.js"></script>
+    <script src="js/audio_unlocker.js"></script>
+    
+    <!-- Script para forçar carregamento de imagens -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Forçar carregamento de todas as imagens
+        const images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+            if (img.src) {
+                const newImg = new Image();
+                newImg.onload = function() {
+                    img.style.opacity = '1';
+                    img.style.display = 'block';
+                };
+                newImg.onerror = function() {
+                    console.log('Erro ao carregar imagem:', img.src);
+                    // Tentar carregar versão alternativa
+                    if (img.src.includes('.webp')) {
+                        img.src = img.src.replace('.webp', '.png');
+                    }
+                };
+                newImg.src = img.src;
+            }
+        });
+        
+        // Forçar carregamento de background images
+        const elementsWithBg = document.querySelectorAll('[style*="background-image"]');
+        elementsWithBg.forEach(function(element) {
+            const bgImage = element.style.backgroundImage;
+            if (bgImage && bgImage !== 'none') {
+                const url = bgImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+                const newImg = new Image();
+                newImg.onload = function() {
+                    element.style.backgroundImage = bgImage;
+                };
+                newImg.src = url;
+            }
+        });
+        
+        // Inicializar carrossel se existir
+        setTimeout(function() {
+            const carousel = document.querySelector('.elementor-image-carousel');
+            if (carousel && typeof Swiper !== 'undefined') {
+                new Swiper(carousel, {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.elementor-swiper-button-next',
+                        prevEl: '.elementor-swiper-button-prev',
+                    },
+                });
+            }
+        }, 1000);
+        
+        // Desabilitar lazy loading do WP Rocket temporariamente
+        if (window.rll) {
+            window.rll.disable();
+        }
+        
+        // Forçar carregamento de imagens com data-src (lazy loading)
+        const lazyImages = document.querySelectorAll('img[data-src]');
+        lazyImages.forEach(function(img) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+        });
+        
+        // Centralizar imagens dos módulos e bônus
+        setTimeout(function() {
+            const moduleImages = document.querySelectorAll('#modulos-section img, #bonus-section img');
+            moduleImages.forEach(function(img) {
+                img.style.display = 'block';
+                img.style.margin = '0 auto';
+                img.style.textAlign = 'center';
+            });
+        }, 500);
+    });
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '123456789012345');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=123456789012345&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="images/paredeoficial.jpg" as="image">
+    <link rel="preload" href="images/COMUNIDADE-removebg-preview.png" as="image">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Anton&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Anton&display=swap">
+    </noscript>
+    
+    <!-- CSS da nova pasta -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/frontend.min.css">
+    <link rel="stylesheet" href="css/e-swiper.min.css">
+    <link rel="stylesheet" href="css/widget-image-carousel.min.css">
+    <link rel="stylesheet" href="css/widget-heading.min.css">
+    <link rel="stylesheet" href="css/widget-button.min.css">
+    <link rel="stylesheet" href="css/widget-spacer.min.css">
+    <link rel="stylesheet" href="css/widget-image.min.css">
+    <link rel="stylesheet" href="css/widget-icon-box.min.css">
+    <link rel="stylesheet" href="css/shapes.min.css">
+    <link rel="stylesheet" href="css/anton.css">
+    <link rel="stylesheet" href="css/robotoslab.css">
+    <link rel="stylesheet" href="css/robotocondensed.css">
+    <link rel="stylesheet" href="css/roboto.css">
+    <link rel="stylesheet" href="css/opensans.css">
+    <link rel="stylesheet" href="css/rowdies.css">
+    <link rel="stylesheet" href="css/montserrat.css">
+    <link rel="stylesheet" href="css/post-116.css">
+    
+    <!-- CSS original -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('SW registered'))
+                    .catch(registrationError => console.log('SW registration failed'));
+            });
+        }
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Curso de Desbloqueio de Celulares - Unlocker Pro",
+        "description": "Aprenda a desbloquear todos os modelos de celulares com nosso curso completo do zero ao avançado.",
+        "provider": {
+            "@type": "Organization",
+            "name": "Unlocker Pro"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "19.90",
+            "priceCurrency": "BRL"
+        }
+    }
+    </script>
+
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .promo-bar {
+      background-color: #ff0000;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 8px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 100%;
+      box-sizing: border-box;
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('images/FUNDO OFICIAL.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: scroll;
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-      pointer-events: none;
+      z-index: 9999;
+    }
+    .promo-text {
+      text-align: center;
+      letter-spacing: 1px;
+      word-spacing: 3px;
+    }
+    @media (max-width: 600px) {
+      .promo-bar {
+        font-size: 12px;
+        padding: 6px 8px;
+      }
+      .promo-text {
+        letter-spacing: 0.5px;
+        word-spacing: 2px;
+      }
     }
     
-    /* Dark overlay for the global background */
-    .site-background::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: 1;
+    /* CSS para o carrossel infinito de bônus */
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
     
-    .site-background.visible {
-      opacity: 1;
-    }
-    
-    /* Ensure content sections have proper contrast over the background */
-    .about-section-with-bg,
-    .modules-section,
-    .promo-section,
-    .plans-section,
-    .faq-section {
+    .carousel-container {
+      overflow: hidden;
       position: relative;
-      z-index: 1;
+      width: 100%;
     }
     
-    .hero-section { 
-      position: relative; 
-      width: 100%; 
+    .carousel-track {
+      display: flex;
+      width: 700%;
+      animation: scroll 112s linear infinite;
+    }
+    
+    .bonus-card {
+      flex: 0 0 14.285%;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
+    
+    @media (max-width: 768px) {
+      .carousel-track {
+        width: 1400%;
+        animation: scroll 60s linear infinite;
+      }
+      .bonus-card {
+        flex: 0 0 7.142%;
+      }
+    }
+    
+    /* Garantir que imagens sejam exibidas */
+    img {
+      display: block !important;
+      max-width: 100%;
+      height: auto;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    
+    picture {
+      display: block;
+    }
+    
+    /* Forçar exibição de imagens em carrosséis */
+    .elementor-image-carousel img,
+    .swiper-slide img {
+      display: block !important;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    
+    /* Centralizar imagens dos módulos */
+    #modulos-section img {
+      display: block !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+    
+    /* Centralizar imagens dos bônus */
+    #bonus-section img {
+      display: block !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+    
+    /* Garantir que containers de módulos centralizem conteúdo */
+    #modulos-section > div > div {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    
+    /* Centralizar imagens em cards de bônus */
+    .bonus-card img {
+      display: block !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+    
+    /* Centralizar todas as imagens dos módulos e bônus */
+    #modulos-section img[src*="module-icon"],
+    #bonus-section img[src*="module-icon"] {
+      display: block !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+    
+    /* Centralizar imagens em divs específicas */
+    #modulos-section > div > div > img,
+    #bonus-section .bonus-card > div > div > img {
+      display: block !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+    }
+  </style>
+</head>
+<body class="wp-singular page-template page-template-elementor_canvas page page-id-116 wp-embed-responsive wp-theme-twentytwentyfive elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-116">
+    <!-- Background -->
+    <div class="site-background" id="siteBackground"></div>
+    
+    <!-- Promo Bar no topo absoluto -->
+    <div class="promo-bar">
+        <div class="promo-text" id="promo-date">🔥 VALOR PROMOCIONAL APENAS HOJE – <span id="current-date"></span> 🔥</div>
+    </div>
+    
+    <script>
+    // Script para atualizar a data da promoção automaticamente
+    function updatePromoDate() {
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        const currentDate = day + '/' + month + '/' + year;
+        
+        const dateElement = document.getElementById('current-date');
+        if (dateElement) {
+            dateElement.textContent = currentDate;
+        }
+    }
+    
+    // Executar quando a página carregar
+    document.addEventListener('DOMContentLoaded', updatePromoDate);
+    
+    // Executar imediatamente caso o DOM já esteja carregado
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', updatePromoDate);
+    } else {
+        updatePromoDate();
+    }
+    </script>
+    
+    <div data-elementor-type="wp-page" data-elementor-id="116" class="elementor elementor-116" data-elementor-post-type="page">
       height: 100vh; 
       min-height: 600px;
       z-index: 2;
@@ -214,196 +497,178 @@
   <!-- Global background that appears after hero section -->
   <div class="site-background" id="siteBackground"></div>
   
-  <!-- Banner Promocional no Topo -->
-  <div class="top-promo-banner">
-    <div class="promo-banner-content">
-      <span class="flame-icon">🔥</span>
-      <span class="promo-text">VALOR PROMOCIONAL APENAS HOJE - 11/08/2025</span>
-      <span class="flame-icon">🔥</span>
-    </div>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <!-- Background image with proper loading -->
-    <div class="hero-background" aria-hidden="true"></div>
-    
-    <!-- Overlay -->
-    <div class="hero-overlay" aria-hidden="true"></div>
-    
-    <!-- Main content -->
-    <div class="hero-content">
-      <div class="hero-text-container">
-        <!-- Título principal com retângulos vermelhos -->
-        <div class="hero-main-title">
-          <div class="title-line-red">
-            <span>CURSO DE DESBLOQUEIO</span>
-          </div>
-          <div class="title-line-red">
-            <span>DE CELULARES!</span>
-          </div>
+    <div class="elementor-element elementor-element-9bafc25 elementor-hidden-mobile e-flex e-con-boxed e-con e-parent" data-id="9bafc25" data-element_type="container">
+        <div class="e-con-inner">
+    <div class="elementor-element elementor-element-49fcfa0 elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="49fcfa0" data-element_type="widget" data-widget_type="image.default">
+                                <picture><source srcset="images/Proibicao-de-Clonagem-de-Produto.png.webp 1024w, images/Proibicao-de-Clonagem-de-Produto-300x300.png.webp 300w, images/Proibicao-de-Clonagem-de-Produto-150x150.png.webp 150w, images/Proibicao-de-Clonagem-de-Produto-768x768.png.webp 768w" sizes="(max-width: 1024px) 100vw, 1024px" type="image/webp"><img data-no-lazy="" fetchpriority="high" decoding="async" width="1024" height="1024" src="images/Proibicao-de-Clonagem-de-Produto.png" class="attachment-large size-large wp-image-516 webpexpress-processed" alt="" srcset="images/Proibicao-de-Clonagem-de-Produto.png 1024w, images/Proibicao-de-Clonagem-de-Produto-300x300.png 300w, images/Proibicao-de-Clonagem-de-Produto-150x150.png 150w, images/Proibicao-de-Clonagem-de-Produto-768x768.png 768w" sizes="(max-width: 1024px) 100vw, 1024px"></picture>                                </div>
         </div>
-        
-        <!-- Subtítulo em vermelho -->
-        <div class="hero-subtitle">
-          <div class="subtitle-line-red">APRENDA A DESBLOQUEAR</div>
-          <div class="subtitle-line-red">TODOS OS MODELOS DE</div>
-          <div class="subtitle-line-red">CELULAR COM NOSSO CURSO</div>
-          <div class="subtitle-line-red">DO ZERO AO</div>
-        </div>
-        
-        <!-- Destaque em roxo -->
-        <div class="hero-highlight">
-          <span class="highlight-purple">AVANÇADO!</span>
-        </div>
-
-        <!-- Imagem da comunidade (mantida original) -->
-        <img src="images/COMUNIDADE-removebg-preview.png" alt="Logo da comunidade iOS Unlocker Pro" width="350" height="200" loading="lazy" fetchpriority="high" class="hero-logo">
-
-        <!-- Botão CTA principal -->
-        <div class="hero-cta">
-          <button class="main-cta-button">
-            GARANTA SUA VAGA AGORA →
-          </button>
-        </div>
-      </div>
     </div>
-  </section>
-
-  <!-- SEÇÃO DE BOTÕES REORGANIZADA -->
-  <div class="buttons-section">
-    <div class="main-cta-section">
-      <button class="main-cta-button-large">
-        GARANTA SUA VAGA AGORA
-      </button>
-      <div class="cta-benefits">
-        <span>Acesso imediato</span>
-        <span>Garantia de 30 dias</span>
-        <span>Suporte especializado</span>
-      </div>
-    </div>
-    
-    <div class="support-button-section">
-      <button class="support-button-large">
-        <span class="support-button-line">DÊ UMA OLHADA NO NOSSO GRUPO</span>
-        <span class="support-button-line">DE SUPORTE!</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- SEÇÃO DE DEPOIMENTOS E PROMOÇÃO -->
-  <div style="
-    background: #000;
-    padding: 20px;
-    text-align: center;
-  ">
-    <div style="
-      width: 100%;
-      max-width: 500px;
-      height: 600px;
-      margin: 0 auto;
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    ">
-      <img id="testimonial-image" src="images/depoimento01iphone.jpg" alt="Depoimento de aluno sobre o curso iOS Unlocker Pro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: opacity 0.5s; opacity: 1;">
-    </div>
-  </div>
-
-  <!-- SEÇÃO PROMOCIONAL COM PREÇOS E GARANTIA -->
-  <section class="promo-banner-section">
-    <div class="promo-banner-container">
-      <!-- Texto de Garantia no topo -->
-      <div class="guarantee-banner">
-        <div class="guarantee-line">E COM GARANTIA, VOCÊ</div>
-        <div class="guarantee-line">SATISFEITO OU SEU DINHEIRO</div>
-        <div class="guarantee-line">DE VOLTA!</div>
-      </div>
-
-      <!-- Preço Antigo -->
-      <div class="old-price-banner">
-        <div class="old-price-label">DE R$147,00</div>
-      </div>
-
-      <!-- Texto "APENAS" -->
-      <div class="only-text-banner">APENAS</div>
-
-      <!-- Preço Novo -->
-      <div class="new-price-banner">R$19,90</div>
-
-      <!-- Botão CTA -->
-      <div class="promo-cta-banner">
-        <button class="promo-button-banner">
-          QUERO ACESSAR AGORA
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Modules Section -->
-  <div style="position: relative;">
-    
-    <div style="position: relative; z-index: 2;">
-      <section id="modules" class="modules-section">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Módulos do Curso: Básico ao Avançado</h2>
-            <p class="section-subtitle">Conteúdo estruturado para levar você do iniciante ao profissional</p>
-          </div>
-          <div class="modules-grid">
-            <div class="module-card">
-              <div class="module-thumbnail">
-                <img src="images/md1.png" alt="Módulo 01 - Apresentação do curso" loading="lazy">
-              </div>
-              <div class="module-content">
-                <h3 class="module-title">MÓDULO 01</h3>
-                <p class="module-description">
-                  APRESENTAÇÃO DO CURSO E DO CONTEÚDO. CONCEITOS SOBRE DESBLOQUEIOS E VAI APRENDAR NA PRATICA A COMO DOMINAR A FERRAMENTA UNLOCKTOOL!
-                </p>
-              </div>
+<section class="elementor-section elementor-top-section elementor-element elementor-element-7e4e225 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7e4e225" data-element_type="section" style="background-image: url('images/fundo-hero.webp'); background-size: cover; background-position: center; background-repeat: no-repeat;" data-rocket-lazy-bg-a96f9777-bc95-4d56-b037-7cb7ad1e6242="loaded">
+    <div class="elementor-container elementor-column-gap-default">
+        <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-f7e02fc" data-id="f7e02fc" data-element_type="column">
+            <div class="elementor-widget-wrap elementor-element-populated">
+                <div class="elementor-element elementor-element-4a644e0 elementor-widget elementor-widget-html" data-id="4a644e0" data-element_type="widget" data-widget_type="html.default">
+                </div>
+                <div class="elementor-element elementor-element-17a7fb3 elementor-widget elementor-widget-html" data-id="17a7fb3" data-element_type="widget" data-widget_type="html.default">
+                </div>
+                <div class="elementor-element elementor-element-f91200a elementor-widget elementor-widget-spacer" data-id="f91200a" data-element_type="widget" data-widget_type="spacer.default">
+                    <div class="elementor-spacer">
+                        <div class="elementor-spacer-inner"></div>
+                    </div>
+                </div>
+                <div class="elementor-element elementor-element-92e85da elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="92e85da" data-element_type="widget" data-widget_type="heading.default">
+                    <h2 class="elementor-heading-title elementor-size-default"><span style="color:#ffffff;background-color:#ff1f00">CURSO DE DESBLOQUEIO DE CELULARES!</span></h2>
+                </div>
+                <div class="elementor-element elementor-element-558cc67 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="558cc67" data-element_type="widget" data-widget_type="heading.default">
+                    <h2 class="elementor-heading-title elementor-size-default"><span style="font-weight: normal"><h1>APRENDA A DESBLOQUEAR TODOS OS MODELOS DE CELULAR COM NOSSO CURSO DO <span style="color: #a020f0;font-weight: normal">ZERO AO AVANÇADO!</span><span style="letter-spacing: 0.4px"></span></h1></span></h2>
+                </div>
+                <div class="elementor-element elementor-element-cf20d21 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="cf20d21" data-element_type="widget" data-widget_type="image.default" style="margin-top: -90px;">
+    <picture>
+        <source type="image/webp" srcset="images/COMUNIDADE-removebg-preview.png 500w, images/COMUNIDADE-removebg-preview.png 300w, images/COMUNIDADE-removebg-preview.png 150w" sizes="(max-width: 500px) 100vw, 500px">
+        <img decoding="async" width="500" height="500" src="images/COMUNIDADE-removebg-preview.png" class="attachment-large size-large" alt="Logo da comunidade iOS Unlocker Pro" loading="lazy" srcset="images/COMUNIDADE-removebg-preview.png 500w, images/COMUNIDADE-removebg-preview.png 300w, images/COMUNIDADE-removebg-preview.png 150w" sizes="(max-width: 500px) 100vw, 500px">
+    </picture>
+</div>
+                <div class="elementor-element elementor-element-69e205e elementor-mobile-align-center elementor-hidden-tablet elementor-align-justify elementor-hidden-desktop elementor-widget elementor-widget-button" data-id="69e205e" data-element_type="widget" data-widget_type="button.default">
+                    <a class="elementor-button elementor-button-link elementor-size-sm" href="#1990">
+                        <span class="elementor-button-content-wrapper">
+                            <span class="elementor-button-text">QUERO ACESSAR AGORA</span>
+                        </span>
+                    </a>
+                </div>
             </div>
-            <div class="module-card">
-              <div class="module-thumbnail">
-                <img src="images/md2.png" alt="Módulo 02 - Passo a passo para desbloqueio" loading="lazy">
-              </div>
-              <div class="module-content">
-                <h3 class="module-title">MÓDULO 02</h3>
-                <p class="module-description">
-                  PASSO A PASSO PARA VOCÊ DESBLOQUEAR O IPHONE MUITO RÁPIDO E LUCRAR ATÉ R$700,00 POR APARELHO. EU VOU COMPARTILHAR O MEU MÉTODO E, MAIS IMPORTANTE, OS SERVIDORES E ONDE ESSES APARELHOS ESTÃO.
-                </p>
-              </div>
-            </div>
-            <div class="module-card">
-              <div class="module-thumbnail">
-                <img src="images/md3.png" alt="Módulo 03 - Apresentação de ferramentas" loading="lazy">
-              </div>
-              <div class="module-content">
-                <h3 class="module-title">MÓDULO 03</h3>
-                <p class="module-description">
-                  APRESENTAÇÃO DE FERRAMENTAS, SOFTWARES E SOLUÇÕES AVANÇADAS PARA DESBLOQUEIOS EFICIENTES.
-                </p>
-              </div>
-            </div>
-            <div class="module-card">
-              <div class="module-thumbnail">
-                <img src="images/md4.png" alt="Módulo 04 - Aulas práticas de desbloqueios" loading="lazy">
-              </div>
-              <div class="module-content">
-                <h3 class="module-title">MÓDULO 04</h3>
-                <p class="module-description">
-                  AULAS PRÁTICAS DE DESBLOQUEIOS PARA DIVERSOS MODELOS DE IPHONE, COM SUPORTE COMPLETO E MENTORIA ESPECIALIZADA.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
     </div>
-  </div>
+</section>
 
-      <!-- Bonuses Section -->
-      <section id="bonus-section" class="bonus-section" style="background: url('images/bg-unlock-fundo.webp'); background-size: cover; background-position: center; padding: 40px 15px; min-height: 120vh; display: block;">
+		<section class="elementor-section elementor-top-section elementor-element elementor-element-73e321a elementor-hidden-desktop elementor-hidden-tablet elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="73e321a" data-element_type="section" style="background-color: #000000;">
+				<div class="elementor-container elementor-column-gap-default">
+			<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0b303e6" data-id="0b303e6" data-element_type="column">
+		<div class="elementor-widget-wrap elementor-element-populated">
+					<div class="elementor-element elementor-element-ad9a13f elementor-widget__width-initial pulse elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="ad9a13f" data-element_type="widget" data-widget_type="heading.default">
+				<h2 class="elementor-heading-title elementor-size-default">DÊ UMA OLHADA NO NOSSO GRUPO DE SUPORTE!</h2>				</div>
+				<div class="elementor-element elementor-element-74ae08a elementor-pagination-position-inside elementor-hidden-desktop elementor-hidden-tablet elementor-arrows-position-inside elementor-widget elementor-widget-image-carousel" data-id="74ae08a" data-element_type="widget" data-settings="{
+        " navigation":"both",="" "autoplay":"yes",="" "pause_on_hover":"yes",="" "pause_on_interaction":"yes",="" "autoplay_speed":3000,="" "infinite":"yes",="" "speed":500="" }"="" style="max-width: 400px; margin: 0 auto; overflow: hidden;">
+
+    <div class="elementor-image-carousel-wrapper swiper">
+        <div class="elementor-image-carousel swiper-wrapper">
+            <div class="swiper-slide"><img src="images/depoimento01iphone.jpg" alt="WhatsApp Print 1"></div>
+            <div class="swiper-slide"><img src="images/depoimento02.jpg" alt="WhatsApp Print 2"></div>
+            <div class="swiper-slide"><img src="images/depoimento3.jpeg" alt="WhatsApp Print 3"></div>
+        </div>
+
+        <div class="elementor-swiper-button elementor-swiper-button-prev"></div>
+        <div class="elementor-swiper-button elementor-swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<style>
+/* Força apenas 1 imagem por vez no carrossel */
+.elementor-image-carousel .swiper-wrapper {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+}
+
+.elementor-image-carousel .swiper-slide {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+}
+
+.elementor-image-carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof Swiper !== 'undefined') {
+        new Swiper('.elementor-image-carousel-wrapper.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false
+            },
+            navigation: {
+                nextEl: '.elementor-swiper-button-next',
+                prevEl: '.elementor-swiper-button-prev'
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            }
+        });
+    }
+});
+</script>
+				<div class="elementor-element elementor-element-09d5b4b elementor-widget elementor-widget-heading" data-id="09d5b4b" data-element_type="widget" data-widget_type="heading.default" style="margin-top: 30px;">
+					<h2 class="elementor-heading-title elementor-size-default">E COM GARANTIA, VOCÊ SATISFEITO OU SEU DINHEIRO DE VOLTA!
+</h2>				</div>
+				<div class="elementor-element elementor-element-a5110a8 elementor-widget elementor-widget-heading" data-id="a5110a8" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">DE R$147,00
+</h2>				</div>
+				<div class="elementor-element elementor-element-f3eb109 elementor-widget elementor-widget-heading" data-id="f3eb109" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">APENAS
+</h2>				</div>
+				<div class="elementor-element elementor-element-a2e61fd elementor-widget elementor-widget-heading" data-id="a2e61fd" data-element_type="widget" data-widget_type="heading.default">
+					<h2 class="elementor-heading-title elementor-size-default">R$19,90</h2>				</div>
+								<div class="elementor-element elementor-element-7b969a9 elementor-mobile-align-center elementor-hidden-desktop elementor-hidden-tablet elementor-align-justify elementor-widget elementor-widget-button" data-id="7b969a9" data-element_type="widget" data-widget_type="button.default">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="#1990">
+						<span class="elementor-button-content-wrapper">
+							<span class="elementor-button-text">QUERO ACESSAR AGORA</span>
+						</span>
+					</a>
+				</div>
+				<div class="elementor-element elementor-element-e853f72 elementor-widget elementor-widget-spacer" data-id="e853f72" data-element_type="widget" data-widget_type="spacer.default">
+							<div class="elementor-spacer">
+		<div class="elementor-spacer-inner"></div>
+	</div>
+						</div>
+					</div>
+		</div>
+				</div>
+		</section>
+
+		<!-- Seção dos Módulos -->
+		<section id="modulos-section" style="background: url('images/bg-unlock-fundo.webp'); background-size: cover; background-position: center; padding: 30px 15px;">
+		  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+
+		    <!-- Módulo -->
+		    <div style="flex: 1 1 220px; text-align: center; background: rgba(0, 0, 0, 0.8); border-radius: 10px; padding: 20px; border: 2px solid #a020f0;">
+		      <img src="images/md1.png" alt="Módulo 01" style="width: 80px; margin: 0 auto 10px auto; display: block;">
+		      <h2 style="font-size: 22px; color: #a020f0; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">MÓDULO 01</h2>
+		      <p style="color: #ffffff; font-size: 16px; line-height: 1.5; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">APRESENTAÇÃO DO CURSO E DO CONTEÚDO. CONCEITOS SOBRE DESBLOQUEIOS E VAI APRENDAR NA PRATICA A COMO DOMINAR A FERRAMENTA UNLOCKTOOL!</p>
+		    </div>
+
+		    <!-- Módulo -->
+		    <div style="flex: 1 1 220px; text-align: center; background: rgba(0, 0, 0, 0.8); border-radius: 10px; padding: 20px; border: 2px solid #a020f0;">
+		      <img src="images/md2.png" alt="Módulo 02" style="width: 80px; margin: 0 auto 10px auto; display: block;">
+		      <h2 style="font-size: 22px; color: #a020f0; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">MÓDULO 02</h2>
+		      <p style="color: #ffffff; font-size: 16px; line-height: 1.5; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">PASSO A PASSO PARA VOCÊ DESBLOQUEAR O IPHONE MUITO RÁPIDO E LUCRAR ATÉ R$700,00 POR APARELHO. EU VOU COMPARTILHAR O MEU MÉTODO E, MAIS IMPORTANTE, OS SERVIDORES E ONDE ESSES APARELHOS ESTÃO.</p>
+		    </div>
+
+		    <!-- Módulo -->
+		    <div style="flex: 1 1 220px; text-align: center; background: rgba(0, 0, 0, 0.8); border-radius: 10px; padding: 20px; border: 2px solid #a020f0;">
+		      <img src="images/md3.png" alt="Módulo 03" style="width: 80px; margin: 0 auto 10px auto; display: block;">
+		      <h2 style="font-size: 22px; color: #a020f0; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">MÓDULO 03</h2>
+		      <p style="color: #ffffff; font-size: 16px; line-height: 1.5; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">APRESENTAÇÃO DE FERRAMENTAS, SOFTWARES E SERVIDORES QUE VAMOS UTILIZAR PARA REALIZAR OS DESBLOQUEIOS.</p>
+		    </div>
+
+		    <!-- Módulo -->
+		    <div style="flex: 1 1 220px; text-align: center; background: rgba(0, 0, 0, 0.8); border-radius: 10px; padding: 20px; border: 2px solid #a020f0;">
+		      <img src="images/md4.png" alt="Módulo 04" style="width: 80px; margin: 0 auto 10px auto; display: block;">
+		      <h2 style="font-size: 22px; color: #a020f0; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">MÓDULO 04</h2>
+		      <p style="color: #ffffff; font-size: 16px; line-height: 1.5; font-weight: 500; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">AULAS PRÁTICAS DE DESBLOQUEIOS USANDO FERRAMENTAS E SERVIDORES APRESENTADOS NO CURSO. E TODO O SUPORTE.</p>
+		    </div>
+
+		  </div>
+		</section>
+
+		<!-- Seção de Bônus -->
+		<section id="bonus-section" class="bonus-section" style="background: url('images/bg-unlock-fundo.webp'); background-size: cover; background-position: center; padding: 40px 15px;">
 		  
 		  <div style="max-width: 1200px; margin: auto;">
 		    
@@ -416,118 +681,140 @@
 		    </div>
 
 
-		    <!-- Carrossel de Bônus - ESTEIRA ROLANTE -->
-		    <div class="bonus-carousel-scroll">
-		        <div class="bonus-scroll-track">
+		    <!-- Carrossel de Bônus -->
+		    <div class="carousel-container">
+		        <div class="carousel-track">
 		            
 		            <!-- Bônus 01 -->
-            <div class="bonus-scroll-card">
-                <div class="bonus-card-inner">
-                  <div class="bonus-image-wrapper">
-                    <img src="images/BONUS%201.png" alt="Bônus 01" class="bonus-scroll-image">
-                    <div class="bonus-badge-scroll">
-                      <span>INCLUSO NO PACOTE PREMIUM</span>
-                    </div>
-                  </div>
-                  <div class="bonus-text-wrapper">
-                    <h3>BÔNUS 01</h3>
-                    <h4>BAYPASS IOS 18.5</h4>
-                    <p class="bonus-price-scroll">VALOR: <span class="price-strikethrough">R$29,90</span></p>
-                    <p class="bonus-description-scroll">
-                      ESSE TREINAMENTO EU TE ENSINO DO ABSOLUTO ZERO A COMO DESBLOQUEAR TODOS OS MODELOS DE IPHONES, INCLUINDO NO IOS 18.5, OU SEJA, DO 5S AO 15 PRO MAX
-                    </p>
-                  </div>
-                </div>
-            </div>
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/BONUS 1.png" alt="Bônus 01" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 01</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">BAYPASS IOS 17.5</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$29,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    ESSE TREINAMENTO EU TE ENSINO DO ABSOLUTO ZERO A COMO DESBLOQUEAR TODOS OS MODELOS DE IPHONES, INCLUINDO NO IOS 17.5, OU SEJA, DO 5S AO 15 PRO MAX
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
+		            <!-- Bônus 02 -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/BONUS 3.png" alt="Bônus 02" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 02</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">FRP XIOMI E CONTA MI CLOUD</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$29,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    AQUI VOCÊ VAI APRENDER A FAZER DESBLOQUEIOS XIOMI DEFINITIVOS E FRP, OU SEJA, CONTA GOOGLE DE XIOMI TAMBÉM
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
 
-            <!-- Bônus 02 -->
-            <div class="bonus-scroll-card">
-                <div class="bonus-card-inner">
-                  <div class="bonus-image-wrapper">
-                    <img src="images/BONUS%203.png" alt="Bônus 02" class="bonus-scroll-image">
-                    <div class="bonus-badge-scroll">
-                      <span>INCLUSO NO PACOTE PREMIUM</span>
-                    </div>
-                  </div>
-                  <div class="bonus-text-wrapper">
-                    <h3>BÔNUS 02</h3>
-                    <h4>FRP XIOMI E CONTA MI CLOUD</h4>
-                    <p class="bonus-price-scroll">VALOR: <span class="price-strikethrough">R$29,90</span></p>
-                    <p class="bonus-description-scroll">
-                      AQUI VOCÊ VAI APRENDER A FAZER DESBLOQUEIOS XIOMI DEFINITIVOS E FRP, OU SEJA, CONTA GOOGLE DE XIOMI TAMBÉM
-                    </p>
-                  </div>
-                </div>
-            </div>
+		            <!-- Bônus 03 -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/BONUS 4.png" alt="Bônus 03" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 03</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">SUPORTE INDIVIDUAL VIA ANYDESK</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$29,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    ACESSO REMOTO PROFISSIONAL COM ANYDESK. ESTE MÓDULO ABRANGENTE ENSINA COMO REALIZAR ACESSO REMOTO EM UM NÍVEL PROFISSIONAL UTILIZANDO O ANYDESK DE FORMA GRATUITA E VITALÍCIA.
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
 
-            <!-- Bônus 03 -->
-            <div class="bonus-scroll-card">
-                <div class="bonus-card-inner">
-                  <div class="bonus-image-wrapper">
-                    <img src="images/BONUS%204.png" alt="Bônus 03" class="bonus-scroll-image">
-                    <div class="bonus-badge-scroll">
-                      <span>INCLUSO NO PACOTE PREMIUM</span>
-                    </div>
-                  </div>
-                  <div class="bonus-text-wrapper">
-                    <h3>BÔNUS 03</h3>
-                    <h4>SUPORTE INDIVIDUAL VIA ANYDESK</h4>
-                    <p class="bonus-price-scroll">VALOR: <span class="price-strikethrough">R$29,90</span></p>
-                    <p class="bonus-description-scroll">
-                      ACESSO REMOTO PROFISSIONAL COM ANYDESK. ESTE MÓDULO ABRANGENTE ENSINA COMO REALIZAR ACESSO REMOTO EM UM NÍVEL PROFISSIONAL UTILIZANDO O ANYDESK DE FORMA GRATUITA E VITALÍCIA.
-                    </p>
-                  </div>
-                </div>
-            </div>
+		            <!-- Bônus 04 -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/servidores-removebg-preview.png" alt="Bônus 04" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 04</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">SERVIDORES E FERRAMENTAS</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$49,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    SERVIDORES SÃO EMPRESAS QUE FORNECEM VENDA DE SERVIÇOS MAIS BARATOS PARA QUE VOCÊ POSSA SER UM REVENDEDOR DE RECARGAS E ATIVAÇÕES DE FERRAMENTAS DIGITAIS E DESBLOQUEIOS ONLINE
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
 
-            <!-- Bônus 04 -->
-            <div class="bonus-scroll-card">
-                <div class="bonus-card-inner">
-                  <div class="bonus-image-wrapper">
-                    <img src="images/servidores-removebg-preview.png" alt="Bônus 04" class="bonus-scroll-image">
-                    <div class="bonus-badge-scroll">
-                      <span>INCLUSO NO PACOTE PREMIUM</span>
-                    </div>
-                  </div>
-                  <div class="bonus-text-wrapper">
-                    <h3>BÔNUS 04</h3>
-                    <h4>SERVIDORES E FERRAMENTAS</h4>
-                    <p class="bonus-price-scroll">VALOR: <span class="price-strikethrough">R$49,90</span></p>
-                    <p class="bonus-description-scroll">
-                      SERVIDORES SÃO EMPRESAS QUE FORNECEM VENDA DE SERVIÇOS MAIS BARATOS PARA QUE VOCÊ POSSA SER UM REVENDEDOR DE RECARGAS E ATIVAÇÕES DE FERRAMENTAS DIGITAIS E DESBLOQUEIOS ONLINE
-                    </p>
-                  </div>
-                </div>
-            </div>
+		            <!-- Bônus 05 -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/ferramentas-removebg-preview.png" alt="Bônus 05" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 05</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">FERRAMENTAS PARA ASSISTÊNCIAS</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$49,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    BLOCO DE ORDEM DE SERVIÇOS E PLAQUINHA DE PIX PERSONALIZADA.
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
 
-            <!-- Bônus 05 -->
-            <div class="bonus-scroll-card">
-                <div class="bonus-card-inner">
-                  <div class="bonus-image-wrapper">
-                    <img src="images/ferramentas-removebg-preview.png" alt="Bônus 05" class="bonus-scroll-image">
-                    <div class="bonus-badge-scroll">
-                      <span>INCLUSO NO PACOTE PREMIUM</span>
-                    </div>
-                  </div>
-                  <div class="bonus-text-wrapper">
-                    <h3>BÔNUS 05</h3>
-                    <h4>FERRAMENTAS PARA ASSISTÊNCIAS</h4>
-                    <p class="bonus-price-scroll">VALOR: <span class="price-strikethrough">R$49,90</span></p>
-                    <p class="bonus-description-scroll">
-                      BLOCO DE ORDEM DE SERVIÇOS E PLAQUINHA DE PIX PERSONALIZADA.
-                    </p>
-                  </div>
-                </div>
-            </div>
-
-            <!-- Bônus 06 -->
-            <div class="bonus-scroll-card">
-                <div class="bonus-card-inner">
-                  <div class="bonus-image-wrapper">
-                    <img src="images/BONUS%205.png" alt="Bônus 06" class="bonus-scroll-image">
-                    <div class="bonus-badge-scroll">
-                      <span>INCLUSO NO PACOTE PREMIUM</span>
-                    </div>
+		            <!-- Bônus 06 -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/BONUS 5.png" alt="Bônus 06" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 06</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">FRP ONE CLICK</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$29,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    QUALQUER SAMSUNG<br>QUALQUER XIOMI<br>QUALQUER NOKIA<br>MOTOROLA<br>LG
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
                   </div>
                   <div class="bonus-text-wrapper">
                     <h3>BÔNUS 06</h3>
@@ -1153,6 +1440,15 @@
 
 <script src="js/script.js"></script>
 
+<!-- Scripts da nova pasta -->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/frontend.min.js"></script>
+<script src="js/frontend-modules.min.js"></script>
+<script src="js/elements-handlers.min.js"></script>
+<script src="js/core.min.js"></script>
+
 <script>
   // Control global background visibility
   function controlGlobalBackground() {
@@ -1181,5 +1477,114 @@
   // Initialize when DOM is loaded
   document.addEventListener('DOMContentLoaded', controlGlobalBackground);
 </script>
+
+<script>
+// Script para notificações de compra
+setTimeout(function() {
+  var position = "right-top";
+  var animation = "slide";
+  var timeout = 5000;
+  var color = "verde";
+  var min_time = 3;
+  var max_time = 8;
+
+  var store_names = [
+    "Loja de Celulares",
+    "Smart Repair",
+    "Conserto Premium",
+    "Eletrônica Master",
+    "Loja Conectada",
+    "Tech Cell",
+    "Reparo Rápido"
+  ];
+
+  var product_names = [
+    "PLANO PREMIUM por R$47,00",
+    "PLANO PREMIUM por R$47,00", 
+    "PLANO PREMIUM por R$47,00", 
+    "PLANO PREMIUM por R$47,00" 
+  ];
+
+  var phrases = [
+    "acabou de adquirir",
+    "comprou agora",
+    "realizou uma nova compra",
+    "aproveitou a oferta de"
+  ];
+
+  var option = {
+    position: position,
+    cssAnimationStyle: animation,
+    plainText: false,
+    timeout: timeout
+  };
+
+  function show_notification() {
+    var randomStore = store_names[Math.floor(Math.random() * store_names.length)];
+    var randomProduct = product_names[Math.floor(Math.random() * product_names.length)];
+    var randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+
+    msg_final = `<strong>${randomStore}</strong> ${randomPhrase} ${randomProduct}`;
+
+    // Tocar som sincronizado com a notificação
+    window.playNotificationSound();
+
+    switch (color) {
+      case "verde":
+        Notiflix.Notify.Success(msg_final, option);
+        break;
+      case "azul":
+        Notiflix.Notify.Info(msg_final, option);
+        break;
+      case "vermelho":
+        Notiflix.Notify.Failure(msg_final, option);
+        break;
+      case "amarelo":
+        Notiflix.Notify.Warning(msg_final, option);
+        break;
+    }
+
+    var rand = Math.floor(Math.random() * (max_time - min_time + 1) + min_time);
+    setTimeout(show_notification, rand * 1000);
+  }
+
+  // Iniciar notificações após 4 segundos
+  setTimeout(show_notification, 4 * 1000);
+}, 2000);
+</script>
+
+  <style>
+      /* Background apenas para dispositivos móveis */
+      @media screen and (max-width: 768px) {
+        body {
+          background: url('images/bg-unlock.webp') no-repeat center center fixed;
+          background-size: cover;
+          background-color: #18192a; /* fallback */
+        }
+      }
+      
+      /* Background para desktop (opcional - pode ser removido se quiser só cor) */
+      @media screen and (min-width: 769px) {
+        body {
+          background-color: #18192a; /* só cor de fundo para desktop */
+        }
+      }
+      
+      /* Centralizar imagem do selo de garantia */
+      .elementor-element-3a922ea img,
+      .elementor-element-3a922ea picture {
+        display: block !important;
+        margin: 0 auto !important;
+        text-align: center !important;
+      }
+      
+      /* Centralizar container da imagem do selo */
+      .elementor-element-3a922ea {
+        text-align: center !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+    </style>
 
 </body></html>
