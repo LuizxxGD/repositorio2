@@ -246,7 +246,7 @@
         transform: translateX(0);
       }
       100% {
-        transform: translateX(-600%);
+        transform: translateX(-100%);
       }
     }
     
@@ -254,27 +254,30 @@
       overflow: hidden;
       position: relative;
       width: 100%;
+      pointer-events: none; /* Desabilita interação */
     }
     
     .carousel-track {
       display: flex;
-      width: 600%;
-      animation: scroll 60s linear infinite;
+      width: 1200%; /* Duplica os cards para criar loop perfeito */
+      animation: scroll 120s linear infinite; /* Mais lento */
+      will-change: transform;
     }
     
     .bonus-card {
-      flex: 0 0 16.666%;
+      flex: 0 0 8.333%; /* 100% / 12 cards (6 originais + 6 duplicados) */
       padding: 0 15px;
       box-sizing: border-box;
+      pointer-events: none; /* Desabilita interação */
     }
     
     @media (max-width: 768px) {
       .carousel-track {
-        width: 600%;
-        animation: scroll 45s linear infinite;
+        width: 1200%;
+        animation: scroll 90s linear infinite; /* Mais lento no mobile */
       }
       .bonus-card {
-        flex: 0 0 16.666%;
+        flex: 0 0 8.333%;
       }
     }
     
@@ -444,7 +447,7 @@
                 <div class="elementor-element elementor-element-92e85da elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="92e85da" data-element_type="widget" data-widget_type="heading.default">
                     <h2 class="elementor-heading-title elementor-size-default"><span style="color:#ffffff;background-color:#ff1f00">CURSO DE DESBLOQUEIO DE CELULARES!</span></h2>
                 </div>
-                <div class="elementor-element elementor-element-558cc67 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="558cc67" data-element_type="widget" data-widget_type="heading.default">
+                <div class="elementor-element elementor-element-558cc67 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="558cc67" data-element_type="widget" data-widget_type="heading.default" style="margin-top: 30px;">
                     <h2 class="elementor-heading-title elementor-size-default"><span style="font-weight: normal"><h1>APRENDA A DESBLOQUEAR TODOS OS MODELOS DE CELULAR COM NOSSO CURSO DO <span style="color: #a020f0;font-weight: normal">ZERO AO AVANÇADO!</span><span style="letter-spacing: 0.4px"></span></h1></span></h2>
                 </div>
                 <div class="elementor-element elementor-element-cf20d21 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-image" data-id="cf20d21" data-element_type="widget" data-widget_type="image.default" style="margin-top: 50px;">
@@ -745,6 +748,139 @@ document.addEventListener('DOMContentLoaded', function() {
 		            </div>
 
 		            <!-- Bônus 06 -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/BONUS 5.png" alt="Bônus 06" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 06</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">FRP ONE CLICK</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$29,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    QUALQUER SAMSUNG<br>QUALQUER XIOMI<br>QUALQUER NOKIA<br>MOTOROLA<br>LG
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
+
+		            <!-- DUPLICAÇÃO DOS BÔNUS PARA LOOP PERFEITO -->
+		            <!-- Bônus 01 (duplicado) -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/BONUS 1.png" alt="Bônus 01" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 01</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">BAYPASS IOS 17.5</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$29,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    ESSE TREINAMENTO EU TE ENSINO DO ABSOLUTO ZERO A COMO DESBLOQUEAR TODOS OS MODELOS DE IPHONES, INCLUINDO NO IOS 17.5, OU SEJA, DO 5S AO 15 PRO MAX
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
+
+		            <!-- Bônus 02 (duplicado) -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/BONUS 3.png" alt="Bônus 02" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 02</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">FRP XIOMI E CONTA MI CLOUD</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$29,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    AQUI VOCÊ VAI APRENDER A FAZER DESBLOQUEIOS XIOMI DEFINITIVOS E FRP, OU SEJA, CONTA GOOGLE DE XIOMI TAMBÉM
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
+
+		            <!-- Bônus 03 (duplicado) -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/BONUS 4.png" alt="Bônus 03" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 03</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">SUPORTE INDIVIDUAL VIA ANYDESK</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$29,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    ACESSO REMOTO PROFISSIONAL COM ANYDESK. ESTE MÓDULO ABRANGENTE ENSINA COMO REALIZAR ACESSO REMOTO EM UM NÍVEL PROFISSIONAL UTILIZANDO O ANYDESK DE FORMA GRATUITA E VITALÍCIA.
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
+
+		            <!-- Bônus 04 (duplicado) -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/servidores-removebg-preview.png" alt="Bônus 04" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 04</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">SERVIDORES E FERRAMENTAS</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$49,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    SERVIDORES SÃO EMPRESAS QUE FORNECEM VENDA DE SERVIÇOS MAIS BARATOS PARA QUE VOCÊ POSSA SER UM REVENDEDOR DE RECARGAS E ATIVAÇÕES DE FERRAMENTAS DIGITAIS E DESBLOQUEIOS ONLINE
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
+
+		            <!-- Bônus 05 (duplicado) -->
+		            <div class="bonus-card">
+		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
+		                <div style="margin-bottom: 20px;">
+		                  <img src="images/ferramentas-removebg-preview.png" alt="Bônus 05" style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 15px;">
+		                  <div>
+		                    <span style="background: #ff6600; color: #000000; padding: 12px 25px; border-radius: 25px; font-weight: bold; font-size: 18px; display: inline-block; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); box-shadow: 0 4px 8px rgba(0,0,0,0.3);">INCLUSO NO PACOTE PREMIUM</span>
+		                  </div>
+		                </div>
+		                <div>
+		                  <h3 style="font-size: 32px; color: #ff6600; margin-bottom: 10px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">BÔNUS 05</h3>
+		                  <h4 style="font-size: 28px; color: #ffffff; margin-bottom: 10px; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">FERRAMENTAS PARA ASSISTÊNCIAS</h4>
+		                  <p style="font-size: 20px; color: #ff0000; margin-bottom: 15px; font-weight: bold;">
+		                    VALOR: <span style="text-decoration: line-through;">R$49,90</span>
+		                  </p>
+		                  <p style="color: #ffffff; font-size: 18px; line-height: 1.6; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+		                    BLOCO DE ORDEM DE SERVIÇOS E PLAQUINHA DE PIX PERSONALIZADA.
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
+
+		            <!-- Bônus 06 (duplicado) -->
 		            <div class="bonus-card">
 		              <div style="background: rgba(0, 0, 0, 0.8); border: 2px solid #ff6600; border-radius: 15px; padding: 25px; text-align: center; height: 100%;">
 		                <div style="margin-bottom: 20px;">
