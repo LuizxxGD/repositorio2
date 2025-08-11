@@ -224,15 +224,30 @@
     
     <!-- Main content -->
     <div class="hero-content">
-      <h1 class="hero-title">
-        Curso de Desbloqueio de
-        <span class="gradient-text">Celulares</span>
-        <span class="subtitle">
-          <span class="red-text">APRENDA A DESBLOQUEAR TODOS OS MODELOS DE<br>
-          CELULAR COM NOSSO CURSO DO ZERO AO</span><br>
-          <span class="purple-text">AVANÇADO!</span>
-        </span>
-      </h1>
+      <div class="hero-text-container">
+        <!-- Título principal com retângulos vermelhos -->
+        <div class="hero-main-title">
+          <div class="title-line-red">
+            <span>CURSO DE DESBLOQUEIO</span>
+          </div>
+          <div class="title-line-red">
+            <span>DE CELULARES!</span>
+          </div>
+        </div>
+        
+        <!-- Subtítulo em vermelho -->
+        <div class="hero-subtitle">
+          <div class="subtitle-line-red">APRENDA A DESBLOQUEAR</div>
+          <div class="subtitle-line-red">TODOS OS MODELOS DE</div>
+          <div class="subtitle-line-red">CELULAR COM NOSSO</div>
+          <div class="subtitle-line-red">CURSO DO ZERO AO</div>
+        </div>
+        
+        <!-- Destaque em roxo -->
+        <div class="hero-highlight">
+          <span class="highlight-purple">AVANÇADO!</span>
+        </div>
+      </div>
 
       <img src="images/COMUNIDADE-removebg-preview.png" alt="Logo da comunidade iOS Unlocker Pro" width="350" height="200" loading="lazy" fetchpriority="high" class="hero-logo">
 
@@ -250,31 +265,13 @@
     </div>
   </section>
 
-  <!-- SEÇÃO DE DEPOIMENTOS E PROMOÇÃO -->
-  <div style="
-    background: #000;
-    padding: 40px 20px;
-    text-align: center;
-  ">
-    <h2 style="
-      color: white;
-      font-size: 1.5rem;
-      margin: 20px 0;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-    ">O QUE NOSSOS<br>ALUNOS DIZEM</h2>
-  
-    <div style="
-      width: 100%;
-      max-width: 500px;
-      height: 750px;
-      margin: 0 auto;
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    ">
-      <img id="testimonial-image" src="images/depoimento01iphone.jpg" alt="Depoimento de aluno sobre o curso iOS Unlocker Pro" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: opacity 0.5s; opacity: 1;">
+  <!-- SEÇÃO DO BOTÃO DE SUPORTE -->
+  <div class="support-button-section">
+    <div class="support-button-container">
+      <button class="support-button">
+        <span class="support-button-line">DÊ UMA OLHADA NO NOSSO GRUPO</span>
+        <span class="support-button-line">DE SUPORTE!</span>
+      </button>
     </div>
   </div>
 
@@ -340,38 +337,32 @@
   </div>
 
   <!-- SEÇÃO PROMOCIONAL COM PREÇOS E GARANTIA -->
-  <section class="promo-section">
-    <div class="container">
-      <!-- Preços -->
-      <div class="price-section">
-        <!-- Preço Antigo -->
-        <div class="old-price">
-          <span class="old-price-text">DE R$147,00</span>
-        </div>
-
-        <!-- Texto "APENAS" -->
-        <div class="only-text">
-          <span class="only-text-content">APENAS</span>
-        </div>
-
-        <!-- Preço Novo -->
-        <div class="new-price">
-          <span class="new-price-text">R$19,90</span>
-        </div>
+  <section class="promo-banner-section">
+    <div class="promo-banner-container">
+      <!-- Texto de Garantia no topo -->
+      <div class="guarantee-banner">
+        <div class="guarantee-line">E COM GARANTIA, VOCÊ</div>
+        <div class="guarantee-line">SATISFEITO OU SEU DINHEIRO</div>
+        <div class="guarantee-line">DE VOLTA!</div>
       </div>
+
+      <!-- Preço Antigo -->
+      <div class="old-price-banner">
+        <div class="old-price-label">DE</div>
+        <div class="old-price-value">R$147,00</div>
+      </div>
+
+      <!-- Texto "APENAS" -->
+      <div class="only-text-banner">APENAS</div>
+
+      <!-- Preço Novo -->
+      <div class="new-price-banner">R$19,90</div>
 
       <!-- Botão CTA -->
-      <div class="promo-cta">
-        <a href="#plans" class="main-cta-button">
+      <div class="promo-cta-banner">
+        <button class="promo-button-banner">
           QUERO ACESSAR AGORA
-        </a>
-      </div>
-
-      <!-- Texto de Garantia -->
-      <div class="guarantee-text">
-        <h3 class="guarantee-title">E COM GARANTIA, VOCÊ</h3>
-        <h3 class="guarantee-title">SATISFEITO OU SEU DINHEIRO</h3>
-        <h3 class="guarantee-title">DE VOLTA!</h3>
+        </button>
       </div>
     </div>
   </section>
@@ -809,130 +800,135 @@
   <!-- Plans Section -->
   <section id="comprar-agora" class="plans-section">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">ESCOLHA SEU PLANO</h2>
-        <p class="section-subtitle">Selecione o plano ideal para suas necessidades</p>
-      </div>
-      
       <div class="plans-grid">
-        <!-- Plano Básico -->
-        <div class="plan-card">
-          <div class="plan-header">
-            <h3 class="plan-name">PLANO BÁSICO</h3>
-            <div class="plan-price">
-              <span class="currency">R$</span>
-              <span class="amount">19</span>
-              <span class="cents">,90</span>
-            </div>
-            <p class="plan-period">Pagamento único</p>
+        <!-- Plano Promocional -->
+        <div class="plan-card-promo">
+          <div class="plan-header-promo">
+            <div class="plan-banner-promo">PACOTE PROMOCIONAL</div>
           </div>
           
-                    <div class="plan-features">
+          <div class="plan-price-promo">
+            <div class="price-old-promo">DE R$ 147 POR APENAS</div>
+            <div class="price-new-promo">R$19,90</div>
+          </div>
+          
+          <div class="plan-features-promo">
             <ul>
-              <li><strong>FRP One Click</strong> Desbloqueio de Conta Google</li>
-              <li><strong>Acesso</strong> 30 dias</li>
-              <li><strong>Garantia</strong> 7 dias</li>
-              <li><strong>Suporte</strong> por email</li>
-              <li><strong>Conteúdo</strong> Básico de desbloqueio</li>
+              <li><span class="checkmark">✓</span> FRP One Click Desbloqueio de<br>Conta Google</li>
+              <li><span class="checkmark">✓</span> Acesso 30 dias</li>
+              <li><span class="checkmark">✓</span> 7 dias de garantia</li>
+              <li><span class="checkmark">✓</span> Suporte</li>
             </ul>
           </div>
           
-          <div class="plan-cta">
-            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC598" class="main-cta-button" id="1cc2daf4-b99e-61e4-07db-ec4b600ed87e">
-              ESCOLHER PLANO BÁSICO
-            </a>
+          <div class="plan-cta-promo">
+            <button class="cta-button-promo">ACESSAR AGORA! POR APENAS 19,90</button>
           </div>
         </div>
         
-        <!-- Plano Avançado -->
-        <div class="plan-card">
-          <div class="plan-header">
-            <h3 class="plan-name">PLANO AVANÇADO</h3>
-            <div class="plan-price">
-              <span class="currency">R$</span>
-              <span class="amount">37</span>
-              <span class="cents">,00</span>
-            </div>
-            <p class="plan-period">Pagamento único</p>
+        <!-- Plano Especial -->
+        <div class="plan-card-special">
+          <div class="plan-header-special">
+            <div class="plan-banner-special">PACOTE ESPECIAL</div>
           </div>
           
-          <div class="plan-features">
+          <div class="plan-price-special">
+            <div class="price-label-special">VALOR TOTAL</div>
+            <div class="price-old-special">R$ 247,00</div>
+            <div class="price-new-special">R$37,00</div>
+            <div class="payment-terms-special">
+              <div>Pagamento único</div>
+              <div>ou 4x de R$ 9,62</div>
+            </div>
+          </div>
+          
+          <div class="plan-features-special">
             <ul>
-              <li><strong>FRP One Click</strong> Google + Xiaomi</li>
-              <li><strong>Acesso</strong> 3 meses</li>
-              <li><strong>Bônus Especiais</strong> Inclusos</li>
-              <li><strong>Ferramentas</strong> para assistências</li>
-              <li><strong>Ordem de serviços</strong> Personalizada</li>
-              <li><strong>Placa PDF</strong> Personalizada</li>
-              <li><strong>Suporte</strong> WhatsApp VIP</li>
+              <li><span class="checkmark">✓</span> FRP One Click Desbloqueio</li>
+              <li><span class="checkmark">✓</span> Google + Xiaomi</li>
+              <li><span class="checkmark">✓</span> Acesso 3 meses</li>
+              <li><span class="checkmark">✓</span> Pagamento único</li>
+              <li><span class="checkmark">✓</span> Bônus Especiais</li>
+              <li><span class="checkmark">✓</span> Ferramentas para assistências</li>
+              <li><span class="checkmark">✓</span> Ordem de serviços</li>
+              <li><span class="checkmark">✓</span> Placa PDF personalizada</li>
             </ul>
           </div>
           
-          <div class="plan-cta">
-            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC5A2" class="main-cta-button" id="25f7d9d1-471a-c72a-1ff2-5234b65a0ec0">
-              ESCOLHER PLANO AVANÇADO
-            </a>
+          <div class="plan-cta-special">
+            <button class="cta-button-special">ACESSAR AGORA! POR APENAS 37,00</button>
           </div>
         </div>
         
-        <!-- Plano Especialista -->
-        <div class="plan-card featured">
-          <div class="plan-header">
-            <h3 class="plan-name">ESPECIALISTA MDM PAYJOY</h3>
-            <div class="plan-price">
-              <div class="price-container">
-                <div class="old-price">
-                  <span class="old-currency">R$</span>
-                  <span class="old-amount">197</span>
-                  <span class="old-cents">,00</span>
-                </div>
-                <div class="new-price">
-                  <span class="new-currency">R$</span>
-                  <span class="new-amount">90</span>
-                  <span class="new-cents">,00</span>
-                </div>
-              </div>
+        <!-- Plano Premium -->
+        <div class="plan-card-premium">
+          <div class="plan-header-premium">
+            <div class="plan-banner-premium">
+              <div class="premium-title">ATENÇÃO PREMIUM</div>
+              <div class="premium-subtitle">ACESSO VITALICIO</div>
+              <div class="premium-description">Tome-se premium agora e garanta sua vantagem antes que a concorrência te ultrapasse!</div>
             </div>
-            <p class="plan-period">Pagamento único</p>
           </div>
           
-          <div class="plan-features">
+          <div class="plan-price-premium">
+            <div class="price-label-premium">VALOR TOTAL</div>
+            <div class="price-old-premium">R$ 347,00</div>
+            <div class="price-new-premium">R$47,00</div>
+            <div class="payment-terms-premium">
+              <div>Pagamento único</div>
+              <div>ou 5x de R$ 9,40</div>
+            </div>
+          </div>
+          
+          <div class="plan-features-premium">
             <ul>
-              <li><strong>Desbloqueio</strong> de todas as contas</li>
-              <li><strong>UNLOCKTOOL</strong> Dominada</li>
-              <li><strong>MDM PAYJOY</strong> Especializado</li>
-              <li><strong>FRP One Click</strong> Mi Cloud</li>
-              <li><strong>Acesso</strong> Vitalício</li>
-              <li><strong>Área de membros</strong> Exclusiva</li>
-              <li><strong>Planilhas técnicas</strong> Inclusas</li>
-              <li><strong>Certificado</strong> de conclusão</li>
-              <li><strong>Acesso remoto</strong> Especializado</li>
-              <li><strong>Servidores</strong> e ferramentas</li>
-              <li><strong>Plataforma</strong> via PIX</li>
-              <li><strong>Suporte</strong> Individual</li>
-              <li><strong>Garantia</strong> 7 dias</li>
-              <li><strong>Ordem de serviços</strong> Premium</li>
+              <li><span class="checkmark">✓</span> Desbloqueio de todas as contas</li>
+              <li><span class="checkmark">✓</span> Domine a UNLOCKTOOL</li>
+              <li><span class="checkmark">✓</span> FRP One Click desbloqueios Mi Cloud</li>
+              <li><span class="checkmark">✓</span> Acesso vitalício</li>
+              <li><span class="checkmark">✓</span> Suporte individual</li>
+              <li><span class="checkmark">✓</span> 7 dias de garantia</li>
             </ul>
           </div>
           
-          <div class="plan-cta">
-            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC5A3" class="main-cta-button" id="cdb40bc5-e5b5-61d6-a7d8-72857069161b">
-              ESCOLHER PLANO ESPECIALISTA
-            </a>
+          <div class="bonus-section-premium">
+            <div class="bonus-banner-premium">+BÔNUS INCRÍVEIS</div>
+          </div>
+          
+          <div class="bonus-features-premium">
+            <ul>
+              <li><span class="checkmark">✓</span> Area de membros</li>
+              <li><span class="checkmark">✓</span> Desbloqueios + planilhas técnicas</li>
+              <li><span class="checkmark">✓</span> Certificado de conclusão</li>
+              <li><span class="checkmark">✓</span> Acesso remoto</li>
+              <li><span class="checkmark">✓</span> Servidores e ferramentas</li>
+              <li><span class="checkmark">✓</span> Plataforma via PIX</li>
+              <li><span class="checkmark">✓</span> FRP One Click</li>
+              <li><span class="checkmark">✓</span> Ordem de serviços</li>
+            </ul>
+          </div>
+          
+          <div class="plan-cta-premium">
+            <button class="cta-button-premium">ACESSAR AGORA! POR APENAS 47,00</button>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Seção do Presente com iPhones -->
+  <section class="gift-section">
+    <div class="gift-container">
+      <!-- Imagem do presente -->
+      <div class="gift-image-container">
+        <img src="images/servidores-removebg-preview.png" alt="Presente com servidores" class="gift-image">
+      </div>
       
-      <!-- Garantia -->
-      <div class="guarantee-section">
-        <div class="guarantee-badge">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"></path>
-            <path d="M12 8V12"></path>
-            <path d="M12 16H12.01"></path>
-          </svg>
-          <span>GARANTIA DE 30 DIAS | PAGAMENTO 100% SEGURO</span>
-        </div>
+      <!-- Botão CTA -->
+      <div class="gift-cta">
+        <button class="gift-button">
+          QUERO ME TORNAR ESPECIALISTA
+        </button>
       </div>
     </div>
   </section>
@@ -955,47 +951,6 @@
 
   <!-- Optimized JavaScript with passive listeners and reduced blocking -->
   <script>
-    // Optimized testimonials carousel with Intersection Observer
-    document.addEventListener('DOMContentLoaded', function() {
-      const images = [
-        'images/depoimento01iphone.jpg',
-        'images/depoimento02.jpg',
-        'images/depoimento3.jpeg',
-        'images/depoimento4.jpeg'
-      ];
-      
-      let currentIndex = 0;
-      const imageElement = document.getElementById('testimonial-image');
-      
-      if (imageElement) {
-        // Use Intersection Observer to only start carousel when visible
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              startCarousel();
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-        
-        observer.observe(imageElement.parentElement);
-        
-        function startCarousel() {
-          function changeImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            imageElement.style.opacity = '0';
-            
-            setTimeout(() => {
-              imageElement.src = images[currentIndex];
-              imageElement.style.opacity = '1';
-            }, 250);
-          }
-          
-          // Change image every 3 seconds
-          setInterval(changeImage, 3000);
-        }
-      }
-    });
 
     // Smooth scrolling with passive listeners and reduced blocking
     document.addEventListener('DOMContentLoaded', function() {
