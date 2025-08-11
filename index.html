@@ -284,22 +284,29 @@
     /* Estilos para botões dos planos */
     .cta-button-promo, .cta-button-special, .cta-button-premium {
       width: 100% !important;
-      padding: 20px 30px !important;
-      font-size: 18px !important;
+      padding: 30px 20px !important;
+      font-size: 20px !important;
       font-weight: bold !important;
       text-transform: uppercase !important;
       border: none !important;
-      border-radius: 10px !important;
+      border-radius: 15px !important;
       cursor: pointer !important;
       transition: all 0.3s ease !important;
       background: linear-gradient(45deg, #ff0000, #ff6600) !important;
       color: white !important;
-      box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3) !important;
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4) !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      min-height: 80px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
     }
     
     .cta-button-promo:hover, .cta-button-special:hover, .cta-button-premium:hover {
-      transform: translateY(-3px) !important;
-      box-shadow: 0 12px 35px rgba(255, 0, 0, 0.4) !important;
+      transform: translateY(-5px) !important;
+      box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5) !important;
       background: linear-gradient(45deg, #ff2200, #ff8800) !important;
     }
     
@@ -1107,7 +1114,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="container">
       <div class="plans-grid">
         <!-- Plano Promocional -->
-        <div class="plan-card-promo">
+        <div class="plan-card-promo" style="cursor: pointer;" onclick="window.open('https://checkout.iosunlockerpropay.site/VCCL1O8SC598', '_blank')">
           <div class="plan-header-promo">
             <div class="plan-banner-promo">PACOTE PROMOCIONAL</div>
           </div>
@@ -1127,12 +1134,12 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           
           <div class="plan-cta-promo">
-            <a href="#comprar-agora" class="cta-button-promo" style="text-decoration: none; display: block;">ACESSAR AGORA! POR APENAS 19,90</a>
+            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC598" class="cta-button-promo" style="text-decoration: none; display: block;" target="_blank">ACESSAR AGORA! POR APENAS 19,90</a>
           </div>
         </div>
         
         <!-- Plano Especial -->
-        <div class="plan-card-special">
+        <div class="plan-card-special" style="cursor: pointer;" onclick="window.open('https://checkout.iosunlockerpropay.site/VCCL1O8SC5A2', '_blank')">
           <div class="plan-header-special">
             <div class="plan-banner-special">PACOTE ESPECIAL</div>
           </div>
@@ -1161,12 +1168,12 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           
           <div class="plan-cta-special">
-            <a href="#comprar-agora" class="cta-button-special" style="text-decoration: none; display: block;">ACESSAR AGORA! POR APENAS 37,00</a>
+            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC5A2" class="cta-button-special" style="text-decoration: none; display: block;" target="_blank">ACESSAR AGORA! POR APENAS 37,00</a>
           </div>
         </div>
         
         <!-- Plano Premium -->
-        <div class="plan-card-premium" style="background: linear-gradient(135deg, #8B5CF6, #A855F7); border: 3px solid #FFD700; position: relative; overflow: hidden;">
+        <div class="plan-card-premium" style="background: linear-gradient(135deg, #8B5CF6, #A855F7); border: 3px solid #FFD700; position: relative; overflow: hidden; cursor: pointer;" onclick="window.open('https://checkout.iosunlockerpropay.site/VCCL1O8SC5A3', '_blank')">
           <div class="plan-header-premium" style="background: rgba(255,255,255,0.1); border: 2px solid white; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
             <div class="plan-banner-premium" style="text-align: center;">
               <div class="premium-title" style="color: #000000; font-size: 24px; font-weight: bold; margin-bottom: 5px;">ATENÇÃO PREMIUM</div>
@@ -1214,7 +1221,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           
           <div class="plan-cta-premium">
-            <a href="#comprar-agora" class="cta-button-premium" style="text-decoration: none; display: block;">ACESSAR AGORA! POR APENAS 47,00</a>
+            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC5A3" class="cta-button-premium" style="text-decoration: none; display: block;" target="_blank">ACESSAR AGORA! POR APENAS 47,00</a>
           </div>
         </div>
       </div>
