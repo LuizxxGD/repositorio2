@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
+  <script
+src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+data-utmify-prevent-xcod-sck
+data-utmify-prevent-subids
+async
+defer
+></script>
+
+<script>
+  window.pixelId = "6891a937ff05cd30cebd9def";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curso de Desbloqueio de Celulares - Unlocker Pro</title>
@@ -23,7 +42,7 @@
     <link rel="apple-touch-icon" href="images/placeholder-logo.png">
     
     <!-- Scripts da nova pasta -->
-    <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
     <script src="js/notiflix-aio-2.6.0.min.js"></script>
     <script src="js/audio_unlocker.js"></script>
     
@@ -112,14 +131,7 @@
     });
     </script>
 
-<script>
-  window.pixelId = "6891a937ff05cd30cebd9def";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
+
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -1255,5 +1267,47 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
   </section>
+
+<script>
+// Função para adicionar parâmetros UTM aos links de checkout
+function addUtmToCheckoutLinks() {
+    // Captura os parâmetros da URL atual
+    const urlParams = window.location.search;
+    
+    // Se não há parâmetros, não faz nada
+    if (!urlParams) return;
+    
+    // Seleciona todos os links de checkout
+    const checkoutLinks = document.querySelectorAll('a[href*="checkout.iosunlockerpropay.site"]');
+    
+    // Adiciona os parâmetros UTM a cada link
+    checkoutLinks.forEach(link => {
+        const currentHref = link.getAttribute('href');
+        const separator = currentHref.includes('?') ? '&' : '?';
+        link.setAttribute('href', currentHref + separator + urlParams.substring(1));
+    });
+    
+    // Também modifica os onclick dos divs que abrem checkout
+    const checkoutDivs = document.querySelectorAll('div[onclick*="checkout.iosunlockerpropay.site"]');
+    
+    checkoutDivs.forEach(div => {
+        const onclickAttr = div.getAttribute('onclick');
+        if (onclickAttr) {
+            // Extrai a URL do onclick
+            const urlMatch = onclickAttr.match(/window\.open\('([^']+)'/);
+            if (urlMatch) {
+                const currentUrl = urlMatch[1];
+                const separator = currentUrl.includes('?') ? '&' : '?';
+                const newUrl = currentUrl + separator + urlParams.substring(1);
+                const newOnclick = onclickAttr.replace(urlMatch[1], newUrl);
+                div.setAttribute('onclick', newOnclick);
+            }
+        }
+    });
+}
+
+// Executa a função quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', addUtmToCheckoutLinks);
+</script>
 
 </body></html>
