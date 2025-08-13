@@ -1154,7 +1154,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="container">
       <div class="plans-grid">
         <!-- Plano Promocional -->
-        <div class="plan-card-promo" style="cursor: pointer;" onclick="window.open('https://checkout.iosunlockerpropay.site/VCCL1O8SC598', '_blank')">
+        <div class="plan-card-promo" style="cursor: pointer;" onclick="window.open('https://checkout.iosunlockerpropay.site/VCCL1O8SC598' + window.location.search, '_blank')">
           <div class="plan-header-promo">
             <div class="plan-banner-promo">PACOTE PROMOCIONAL</div>
           </div>
@@ -1174,12 +1174,12 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           
           <div class="plan-cta-promo">
-            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC598" class="cta-button-promo" style="text-decoration: none; display: block;" target="_blank">ACESSAR AGORA!</a>
+            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC598" class="cta-button-promo" style="text-decoration: none; display: block;" target="_blank" onclick="this.href='https://checkout.iosunlockerpropay.site/VCCL1O8SC598' + window.location.search">ACESSAR AGORA!</a>
           </div>
         </div>
         
         <!-- Plano Especial -->
-        <div class="plan-card-special" style="cursor: pointer;" onclick="window.open('https://checkout.iosunlockerpropay.site/VCCL1O8SC5A2', '_blank')">
+        <div class="plan-card-special" style="cursor: pointer;" onclick="window.open('https://checkout.iosunlockerpropay.site/VCCL1O8SC5A2' + window.location.search, '_blank')">
           <div class="plan-header-special">
             <div class="plan-banner-special">PACOTE ESPECIAL</div>
           </div>
@@ -1208,12 +1208,12 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           
           <div class="plan-cta-special">
-            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC5A2" class="cta-button-special" style="text-decoration: none; display: block;" target="_blank">ACESSAR AGORA!</a>
+            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC5A2" class="cta-button-special" style="text-decoration: none; display: block;" target="_blank" onclick="this.href='https://checkout.iosunlockerpropay.site/VCCL1O8SC5A2' + window.location.search">ACESSAR AGORA!</a>
           </div>
         </div>
         
         <!-- Plano Premium -->
-        <div class="plan-card-premium" style="background: linear-gradient(135deg, #8B5CF6, #A855F7); border: 3px solid #FFD700; position: relative; overflow: hidden; cursor: pointer;" onclick="window.open('https://checkout.iosunlockerpropay.site/VCCL1O8SC5A3', '_blank')">
+        <div class="plan-card-premium" style="background: linear-gradient(135deg, #8B5CF6, #A855F7); border: 3px solid #FFD700; position: relative; overflow: hidden; cursor: pointer;" onclick="window.open('https://checkout.iosunlockerpropay.site/VCCL1O8SC5A3' + window.location.search, '_blank')">
           <div class="plan-header-premium" style="background: rgba(255,255,255,0.1); border: 2px solid white; border-radius: 10px; padding: 15px; margin-bottom: 20px;">
             <div class="plan-banner-premium" style="text-align: center;">
               <div class="premium-title" style="color: #000000; font-size: 24px; font-weight: bold; margin-bottom: 5px;">ATENÇÃO PREMIUM</div>
@@ -1261,53 +1261,13 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
           
           <div class="plan-cta-premium">
-            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC5A3" class="cta-button-premium" style="text-decoration: none; display: block;" target="_blank">ACESSAR AGORA!</a>
+            <a href="https://checkout.iosunlockerpropay.site/VCCL1O8SC5A3" class="cta-button-premium" style="text-decoration: none; display: block;" target="_blank" onclick="this.href='https://checkout.iosunlockerpropay.site/VCCL1O8SC5A3' + window.location.search">ACESSAR AGORA!</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-<script>
-// Função para adicionar parâmetros UTM aos links de checkout
-function addUtmToCheckoutLinks() {
-    // Captura os parâmetros da URL atual
-    const urlParams = window.location.search;
-    
-    // Se não há parâmetros, não faz nada
-    if (!urlParams) return;
-    
-    // Seleciona todos os links de checkout
-    const checkoutLinks = document.querySelectorAll('a[href*="checkout.iosunlockerpropay.site"]');
-    
-    // Adiciona os parâmetros UTM a cada link
-    checkoutLinks.forEach(link => {
-        const currentHref = link.getAttribute('href');
-        const separator = currentHref.includes('?') ? '&' : '?';
-        link.setAttribute('href', currentHref + separator + urlParams.substring(1));
-    });
-    
-    // Também modifica os onclick dos divs que abrem checkout
-    const checkoutDivs = document.querySelectorAll('div[onclick*="checkout.iosunlockerpropay.site"]');
-    
-    checkoutDivs.forEach(div => {
-        const onclickAttr = div.getAttribute('onclick');
-        if (onclickAttr) {
-            // Extrai a URL do onclick
-            const urlMatch = onclickAttr.match(/window\.open\('([^']+)'/);
-            if (urlMatch) {
-                const currentUrl = urlMatch[1];
-                const separator = currentUrl.includes('?') ? '&' : '?';
-                const newUrl = currentUrl + separator + urlParams.substring(1);
-                const newOnclick = onclickAttr.replace(urlMatch[1], newUrl);
-                div.setAttribute('onclick', newOnclick);
-            }
-        }
-    });
-}
 
-// Executa a função quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', addUtmToCheckoutLinks);
-</script>
 
 </body></html>
