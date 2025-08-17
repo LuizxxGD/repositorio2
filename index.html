@@ -1272,39 +1272,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
     const link = 'https://whatsappunlockerpro.vercel.app';
   
-    function setBackRedirect(url) {
-      let urlBackRedirect = url;
-      urlBackRedirect = urlBackRedirect.trim() +
-        (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-        document.location.search.replace('?', '').toString();
+    // Adiciona um estado ao histórico
+    history.pushState({}, '', location.href);
   
-      // Adiciona um estado ao histórico
-      history.pushState({}, '', location.href);
-  
-      // Detecta quando o usuário clica no botão voltar do navegador
-      window.addEventListener('popstate', () => {
-        // Redireciona para o WhatsApp quando clicar no botão voltar
-        window.location.href = urlBackRedirect;
-      });
-      
-      // Previne que links internos interfiram com o histórico
-      document.addEventListener('click', (e) => {
-        const target = e.target.closest('a');
-        if (target && target.href) {
-          // Só interfere com links internos (âncoras), não com links externos
-          if (target.href.includes('#') && !target.href.includes('http')) {
-            e.preventDefault();
-            const targetElement = document.querySelector(target.getAttribute('href'));
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-          }
-          // Links externos (como checkout) funcionam normalmente
-        }
-      });
-    }
-  
-    setBackRedirect(link);
+    // Detecta quando o usuário clica no botão voltar do navegador
+    window.addEventListener('popstate', () => {
+      window.location.href = link;
+    });
   </script>
 
 
