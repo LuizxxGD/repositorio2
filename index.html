@@ -145,15 +145,22 @@
   </style>
   
   <!-- UTMify scripts with async loading -->
-  <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
-  <script>
-    window.pixelId = "6891a937ff05cd30cebd9def";
-    var a = document.createElement("script");
-    a.setAttribute("async", "");
-    a.setAttribute("defer", "");
-    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-    document.head.appendChild(a);
-  </script>
+  <script
+src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+data-utmify-prevent-xcod-sck
+data-utmify-prevent-subids
+async
+defer
+></script>
+
+<script>
+  window.pixelId = "6891a937ff05cd30cebd9def";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
 </head>
 
 <body>
@@ -1079,7 +1086,31 @@
   </section>
 
 <script src="js/script.js"></script>
-
+<script>
+    // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+    const link = 'https://whatsappunlockerpro.vercel.app';
+  
+    function setBackRedirect(url) {
+      let urlBackRedirect = url;
+      urlBackRedirect = urlBackRedirect =
+        urlBackRedirect.trim() +
+        (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+        document.location.search.replace('?', '').toString();
+  
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+  
+      window.addEventListener('popstate', () => {
+        console.log('onpopstate', urlBackRedirect);
+        setTimeout(() => {
+          location.href = urlBackRedirect;
+        }, 1);
+      });
+    }
+  
+    setBackRedirect(link);
+  </script>
 
 
 
