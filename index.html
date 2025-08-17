@@ -1272,8 +1272,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
     const link = 'https://whatsappunlockerpro.vercel.app';
     
-    // Só redireciona quando o usuário REALMENTE tenta sair do site
-    window.addEventListener('beforeunload', (e) => {
+    // Adiciona um estado ao histórico
+    history.pushState({}, '', location.href);
+    
+    // Detecta quando o usuário clica no botão voltar do navegador
+    window.addEventListener('popstate', () => {
+      // Redireciona para o WhatsApp
       window.location.href = link;
     });
   </script>
