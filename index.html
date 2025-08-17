@@ -1272,13 +1272,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
     const link = 'https://whatsappunlockerpro.vercel.app';
     
-    // Adiciona um estado ao histórico
-    history.pushState({}, '', location.href);
+    // Detecta quando o usuário tenta sair do site
+    window.addEventListener('beforeunload', (e) => {
+      // Abre o WhatsApp em nova aba
+      window.open(link, '_blank');
+    });
     
-    // Detecta quando o usuário clica no botão voltar do navegador
-    window.addEventListener('popstate', () => {
-      // Redireciona para o WhatsApp
-      window.location.href = link;
+    // Detecta quando o usuário tenta sair usando Alt+F4 ou Ctrl+W
+    document.addEventListener('keydown', (e) => {
+      if ((e.altKey && e.key === 'F4') || (e.ctrlKey && e.key === 'w')) {
+        window.open(link, '_blank');
+      }
     });
   </script>
 
