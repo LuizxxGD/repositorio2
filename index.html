@@ -1279,7 +1279,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const target = e.target.closest('a');
       if (target && target.href) {
         // Se for link interno (mesmo domínio ou âncora), marca como navegação interna
-        if (target.href.includes('#') || target.href.includes(window.location.hostname) || target.href.includes('#comprar-agora')) {
+        if (target.href.includes('#') || target.href.includes(window.location.hostname)) {
           isInternalNavigation = true;
           setTimeout(() => { isInternalNavigation = false; }, 100);
         }
