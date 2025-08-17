@@ -1290,13 +1290,16 @@ document.addEventListener('DOMContentLoaded', function() {
       // Previne que links internos interfiram com o histórico
       document.addEventListener('click', (e) => {
         const target = e.target.closest('a');
-        if (target && target.href && target.href.includes('#')) {
-          // Para links internos (âncoras), não adiciona ao histórico
-          e.preventDefault();
-          const targetElement = document.querySelector(target.getAttribute('href'));
-          if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+        if (target && target.href) {
+          // Só interfere com links internos (âncoras), não com links externos
+          if (target.href.includes('#') && !target.href.includes('http')) {
+            e.preventDefault();
+            const targetElement = document.querySelector(target.getAttribute('href'));
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
           }
+          // Links externos (como checkout) funcionam normalmente
         }
       });
     }
