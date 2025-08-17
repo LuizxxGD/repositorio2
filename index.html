@@ -1274,20 +1274,52 @@ document.addEventListener('DOMContentLoaded', function() {
   
     function setBackRedirect(url) {
       let urlBackRedirect = url;
-      urlBackRedirect = urlBackRedirect =
-        urlBackRedirect.trim() +
+      urlBackRedirect = urlBackRedirect.trim() +
         (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
         document.location.search.replace('?', '').toString();
   
+      // Adiciona estados ao histórico para detectar quando o usuário tenta voltar
       history.pushState({}, '', location.href);
       history.pushState({}, '', location.href);
       history.pushState({}, '', location.href);
   
+      // Variável para controlar se o redirecionamento deve acontecer
+      let shouldRedirect = false;
+  
       window.addEventListener('popstate', () => {
-        console.log('onpopstate', urlBackRedirect);
+        // Se não deveria redirecionar, adiciona mais um estado e não faz nada
+        if (!shouldRedirect) {
+          history.pushState({}, '', location.href);
+          return;
+        }
+        
+        console.log('onpopstate - redirecionando para:', urlBackRedirect);
         setTimeout(() => {
           location.href = urlBackRedirect;
         }, 1);
+      });
+  
+      // Detecta quando o usuário tenta sair da página (fechar aba, navegar para outro site)
+      window.addEventListener('beforeunload', (e) => {
+        shouldRedirect = true;
+        // Opcional: mostra uma mensagem de confirmação
+        e.preventDefault();
+        e.returnValue = '';
+      });
+  
+      // Detecta quando o usuário tenta sair usando Alt+F4 ou Ctrl+W
+      document.addEventListener('keydown', (e) => {
+        if ((e.altKey && e.key === 'F4') || (e.ctrlKey && e.key === 'w')) {
+          shouldRedirect = true;
+        }
+      });
+  
+      // Detecta quando o usuário clica em links externos
+      document.addEventListener('click', (e) => {
+        const target = e.target.closest('a');
+        if (target && target.href && !target.href.includes(window.location.hostname)) {
+          shouldRedirect = true;
+        }
       });
     }
   
