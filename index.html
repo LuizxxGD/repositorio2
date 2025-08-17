@@ -1281,9 +1281,23 @@ document.addEventListener('DOMContentLoaded', function() {
       // Adiciona um estado ao histórico
       history.pushState({}, '', location.href);
   
-      // Detecta quando o usuário clica no botão voltar
+      // Detecta quando o usuário clica no botão voltar do navegador
       window.addEventListener('popstate', () => {
+        // Redireciona para o WhatsApp quando clicar no botão voltar
         window.location.href = urlBackRedirect;
+      });
+      
+      // Previne que links internos interfiram com o histórico
+      document.addEventListener('click', (e) => {
+        const target = e.target.closest('a');
+        if (target && target.href && target.href.includes('#')) {
+          // Para links internos (âncoras), não adiciona ao histórico
+          e.preventDefault();
+          const targetElement = document.querySelector(target.getAttribute('href'));
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
       });
     }
   
