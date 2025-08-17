@@ -1272,26 +1272,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
     const link = 'https://whatsappunlockerpro.vercel.app';
     
-    let isInternalNavigation = false;
-    
-    // Detecta quando o usuário clica em qualquer link interno do site
-    document.addEventListener('click', (e) => {
-      const target = e.target.closest('a');
-      if (target && target.href) {
-        // Se for link interno (mesmo domínio ou âncora), marca como navegação interna
-        if (target.href.includes('#') || target.href.includes(window.location.hostname)) {
-          isInternalNavigation = true;
-          setTimeout(() => { isInternalNavigation = false; }, 100);
-        }
-      }
-    });
-    
-    // Detecta quando o usuário clica no botão voltar do navegador
-    window.addEventListener('popstate', (e) => {
-      // Só redireciona se NÃO for navegação interna
-      if (!isInternalNavigation) {
-        window.location.href = link;
-      }
+    // Só redireciona quando o usuário REALMENTE tenta sair do site
+    window.addEventListener('beforeunload', (e) => {
+      window.location.href = link;
     });
   </script>
 
